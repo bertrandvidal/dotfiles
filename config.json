@@ -1,0 +1,17 @@
+{
+  "git/gitconfig": ".gitconfig",
+  "git/git.bash": ".git.bash",
+  "git/gitignore_global": ".gitignore_global",
+  "git/git-template.txt": ".git-template.txt",
+  "ipython/ipython_config.py": ".ipython/profile_default/ipython_config.py",
+  "bash/bashrc": ".bashrc",
+  "bash/dotfile.sh": ".dotfile.sh",
+  "vim/vimrc": ".vimrc",
+  "vim/vim/pydoc.vim": ".vim/pydoc.vim",
+  "vim/vim/python-indent.vim": ".vim/python-indent.vim",
+  "vim/vim/python.vim": ".vim/python.vim",
+  "awesome/rc.lua": ".config/awesome/rc.lua",
+  "awesome/cpu.lua": ".config/awesome/cpu.lua",
+  "awesome/keyboard_map.lua": ".config/awesome/keyboard_map.lua",
+  "awesome/debian/menu.lua": ".config/awesome/debian/menu.lua"
+}

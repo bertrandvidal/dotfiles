@@ -1,0 +1,78 @@
+set number
+set mouse=r
+set columns=80
+set ruler
+" Ignore case when searching
+set ignorecase
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smarttab
+set guioptions+=aA
+
+set colorcolumn=80
+syntax on
+"Highlight search things
+set hlsearch
+
+colorscheme desert
+
+"Show matching bracets when text indicator is over them
+set showmatch
+
+"Make search act like search in modern browsers
+set incsearch
+
+"Auto indent
+set ai
+"Smart indet
+set si
+
+"Wrap lines
+set wrap
+
+" Merge selection and system clipboard
+set clipboard=unnamedplus
+
+set guifont=ProggyCleanTT\ 16
+set matchpairs=(:),{:},[:],<:>
+set matchtime=2
+set wildmode=longest:list,full
+set ttyfast
+
+" Map W and Q to do the same thing as w and q
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+" set the search scan to wrap lines
+set wrapscan
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Show the current command in the lower right corner
+set showcmd
+
+" Lines above/below cursor when scrolling
+set scrolloff=5
+
+" Minimal columns displayed when scrolling horizontally
+set sidescrolloff=5
+
+" Highlight trailling white spaces
+match Todo /\s\+$/
+
+" Remove trailing white space
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Show file name at the bottom
+set modeline
+set ls=2
+
+" Highlight current line
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+
+autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python.vim

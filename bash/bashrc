@@ -1,0 +1,124 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# enable color support of ls and also add handy aliases
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+fi
+
+alias vi='vim'
+alias ll='ls -Alh'
+alias l='ll'
+alias grep='grep --colour'
+alias egrep='egrep --colour'
+alias ntl='nautilus ./ 2>/dev/null &'
+alias vbash='vi ~/.bashrc'
+alias srcbash='. ~/.bashrc'
+alias setbg="awsetbg -f $HOME/Pictures/bg.jpg"
+alias vawesome="vi ~/.config/awesome/rc.lua"
+alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
+alias vgit='vi ~/.gitconfig'
+alias dmesg='dmesg -T'
+alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
+alias senv='source env/bin/activate'
+
+# utiility functions
+
+# create and source a virtualenv in the current directory
+function create_env(){
+  ENV_DIR=env-$RANDOM
+  [ $# -eq 1 ] && ENV_DIR=$1
+  virtualenv --distribute $ENV_DIR && source $ENV_DIR/bin/activate
+}
+
+# create a dir and cd into it
+function mkcd(){
+  mkdir -p $1 && cd $1
+}
+
+# grep the first parameter un ps aux
+function psgp(){
+ ps faux | grep -v grep | grep -i $1
+}
+
+
+# recursively grep the first argument
+function rgp(){
+ egrep -rniI "$1" *
+}
+
+# kill a process by name
+function killbyname(){
+ kill `ps aux | grep $1 | grep -v grep | awk '{print $2}'`
+}
+
+# search a word on google
+function google(){
+query=
+for word in $*
+do
+  query="${query}+${word}"
+done
+ x-www-browser http://www.google.com/search?q=$query >/dev/null &
+}
+
+#kill process holding the specified file
+function fdkill(){
+  lsof $1 | grep -v PID | kill -9 `awk '{print $2}'`
+}
+
+
+# allows to grep the parameter in any python file
+function pygrep(){
+ SEARCH_PATH="."
+ [ $# -gt 1 ] && SEARCH_PATH=$2
+ find $SEARCH_PATH -name "*.py" -not -path "./env/*" -and -not -path "./*egg*/*" -exec egrep --color -in $1 {} +
+}
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# dot file functions
+[ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
+
+# git/prompt file
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto verbose master"
+[ -f ~/.git.bash ] && source ~/.git.bash
+
+# ssh agent
+keychain -q id_dsa
+host=`uname -n `
+[ -f $HOME/.keychain/$host-sh ] && source $HOME/.keychain/$host-sh
+
+# pythonrc for completion and history
+[ -f $HOME/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
+
+# (env)[clock]user@host:[git_status]cwd$
+export PS1='${debian_chroot:+($debian_chroot)}\[\e]0;\w\007\]\[\033[36m\][\@]\[\033[1;31m\]\u\[\033[0m\]@\H:\[\033[1;32m\]$(__git_ps1 "[%s]")\[\033[0m\]\W\$ '
+
