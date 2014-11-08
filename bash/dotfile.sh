@@ -1,5 +1,5 @@
 
-DOTFILE=~/dotfiles
+DOTFILE=~/github/dotfiles
 
 # Change dir to dotfiles
 function dotcd(){
