@@ -1,3 +1,7 @@
+[user]
+	name = bertrandvidal
+	email = vidal.bertrand@gmail.com
+	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
 [core]
 	excludesfile = /home/bvidal/.gitignore_global
 	editor = vi
