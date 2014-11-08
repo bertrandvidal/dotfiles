@@ -1,4 +1,5 @@
 #!/usr/bin/python
+"""Allows to deploy dotfiles to local machines."""
 
 import os
 import sys
@@ -15,6 +16,7 @@ CONFIG_FILE = "config.json"
 INSTALL_SCRIPT = "install.py"
 
 INSTALL_METHOD = "install"
+
 
 def read_config(config_file):
   """Read the config file if it is found in the current dir, exits otherwise.
@@ -84,6 +86,7 @@ def install():
   for path in os.listdir(os.getcwd()):
     if os.path.isdir(path):
       install_sub_module(path)
+
 
 if __name__ == "__main__":
   install()
