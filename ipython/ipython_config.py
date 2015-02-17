@@ -47,7 +47,7 @@ except ImportError:
 # c.InteractiveShellApp.pylab_import_all = True
 
 # A list of dotted module names of IPython extensions to load.
-# c.InteractiveShellApp.extensions = []
+c.InteractiveShellApp.extensions = []
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
@@ -472,3 +472,9 @@ c.TerminalInteractiveShell.confirm_exit = False
 # Only necessary for items in script_magics where the default path will not find
 # the right interpreter.
 # c.ScriptMagics.script_paths = {}
+
+
+# Enable autoreload extension to be activated automatically
+c.InteractiveShellApp.extensions = ['autoreload']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+
