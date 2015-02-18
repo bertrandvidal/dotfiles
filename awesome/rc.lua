@@ -18,7 +18,7 @@ beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 
 -- Custom theme and so on
-theme.wallpaper_cmd = { "awsetbg /users/bvidal/Pictures/bg.jpg" }
+theme.wallpaper_cmd = { "awsetbg /home/bvidal/Pictures/bg.jpg" }
 
 
 -- This is used later as the default terminal and editor to run.
