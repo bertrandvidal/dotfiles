@@ -157,10 +157,17 @@ for s = 1, screen.count() do
     memwidget = widget({ type = "textbox" })
     cpuwidget = widget({ type = "textbox" })
     batwidget = widget({ type = "textbox" })
+    wifiwidget = widget({ type = "textbox" })
     -- Register widgets
     vicious.register(memwidget, vicious.widgets.mem, "mem: $1% ($2MB/$3MB) - ", 13)
     vicious.register(cpuwidget, vicious.widgets.cpu, "cpu: $1% - $2% - ")
-    vicious.register(batwidget, vicious.widgets.bat, "bat: $1 - $2% - $3", 120, "BAT0")
+    vicious.register(batwidget, vicious.widgets.bat, "bat: $1 - $2% - $3 - ", 120, "BAT0")
+    vicious.register(wifiwidget, vicious.widgets.wifi,
+      function (wifiwidget, args)
+        return "wifi: "..args["{ssid}"].." - "
+      end,
+      120, "wlan0"
+    )
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
@@ -174,6 +181,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         kbdcfg.widget,
         mytextclock,
+        wifiwidget,
         batwidget,
         cpuwidget,
         memwidget,
