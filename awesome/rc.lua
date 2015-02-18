@@ -12,8 +12,6 @@ require("debian.menu")
 require("keyboard_map")
 require("vicious")
 
-require("cpu")
-
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
@@ -174,7 +172,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         kbdcfg.widget,
         mytextclock,
-        cpuinfo,
+        cpuwidget,
         memwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
