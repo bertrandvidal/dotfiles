@@ -159,8 +159,8 @@ for s = 1, screen.count() do
     batwidget = widget({ type = "textbox" })
     wifiwidget = widget({ type = "textbox" })
     -- Register widgets
-    vicious.register(memwidget, vicious.widgets.mem, "mem: $1% ($2MB/$3MB) | ", 3)
-    vicious.register(cpuwidget, vicious.widgets.cpu, "cpu: $1% - $2% | ", 3)
+    vicious.register(memwidget, vicious.widgets.mem, "mem: $1% ($2MB/$3MB) | ")
+    vicious.register(cpuwidget, vicious.widgets.cpu, "cpu: $1% - $2% | ")
     vicious.register(batwidget, vicious.widgets.bat, "bat: $1 - $2% - $3 | ", 120, "BAT0")
     vicious.register(wifiwidget, vicious.widgets.wifi,
       function (wifiwidget, args)
