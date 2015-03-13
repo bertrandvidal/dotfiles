@@ -9,27 +9,24 @@ import shutil
 import imp
 import uuid
 
+
+CURRENT_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)))
+
 DEFAULT_TIME_FORMAT = "%Y%m%d%H%M%S"
 
-CONFIG_FILE = "config.json"
+CONFIG_FILE = os.path.join(CURRENT_FOLDER, "config.json")
 
 INSTALL_SCRIPT = "install.py"
 
 INSTALL_METHOD = "install"
 
 
-def read_config(config_file):
-    """Read the config file if it is found in the current dir, exits otherwise.
-
-    Args:
-      config_file: name of configuration file in the current directory
-    """
-    full_config_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                                         config_file)
-    if not os.path.exists(full_config_file_path):
-        print "No config file found at '%s'" % full_config_file_path
+def read_config():
+    """Read the config file if it is exist, exit otherwise."""
+    if not os.path.exists(CONFIG_FILE):
+        print "No config file found at '%s'" % CONFIG_FILE
         sys.exit(1)
-    with open(full_config_file_path, "r") as fd:
+    with open(CONFIG_FILE, "r") as fd:
         return json.load(fd)
 
 
@@ -45,10 +42,9 @@ def install_link(source, destination, directory="~"):
       directory: base directory in which the link will be created, defaults
         to '~'
     """
-    full_destination = os.path.expandvars(os.path.join(os.path.expanduser(directory),
-                                                       destination))
-    full_source = os.path.join(
-        os.path.abspath(os.path.dirname(__file__)), source)
+    directory = os.path.expanduser(directory)
+    full_destination = os.path.expandvars(os.path.join(directory, destination))
+    full_source = os.path.join(CURRENT_FOLDER, source)
     if not os.path.exists(full_source):
         print "Source '%s' does not exists. Skipping" % full_source
         return
@@ -61,7 +57,7 @@ def install_link(source, destination, directory="~"):
             print "'%s' exists, creating backup file %s" % (full_destination, backup_file)
             shutil.copy(full_destination, backup_file)
         os.unlink(full_destination)
-        print "Unlink %s" % full_destination
+        print "Unlinked %s" % full_destination
     print "Installing '%s' to '%s'" % (full_source, full_destination)
     os.symlink(full_source, full_destination)
 
@@ -81,12 +77,12 @@ def install_sub_module(directory):
 
 
 def install():
-    config = read_config(CONFIG_FILE)
+    config = read_config()
     for source, destination in config.iteritems():
         install_link(source, destination)
-    for path in os.listdir(os.getcwd()):
-        if os.path.isdir(path):
-            install_sub_module(path)
+    for directory in [d for d in os.listdir(CURRENT_FOLDER)
+                      if os.path.isdir(d)]:
+        install_sub_module(directory)
 
 
 if __name__ == "__main__":
