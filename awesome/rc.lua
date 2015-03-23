@@ -257,8 +257,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "F9", function () awful.util.spawn(lockscreen) end),
     awful.key({ modkey,           }, "F10", function () awful.util.spawn(nautilus) end),
     awful.key({ modkey,           }, "F12", function () awful.util.spawn(screenshot) end),
-    awful.key({ modkey,           }, "KP_Add", function () awful.util.spawn(volume_up) end),
-    awful.key({ modkey,           }, "KP_Subtract", function () awful.util.spawn(volume_down) end),
+    awful.key({ modkey,           }, "Up", function () awful.util.spawn(volume_up) end),
+    awful.key({ modkey,           }, "Down", function () awful.util.spawn(volume_down) end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
