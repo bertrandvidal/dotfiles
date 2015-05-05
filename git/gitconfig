@@ -1,9 +1,9 @@
 [user]
-	name = bertrandvidal
-	email = vidal.bertrand@gmail.com
-	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
+	name = bertrand
+	email = bertrand.vidal@genirativ.fr
+	signingkey = Bertrand Vidal <bertrand.vidal@ginerativ.com>
 [core]
-	excludesfile = /home/bvidal/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vi
 [color]
 	ui = true
@@ -11,7 +11,7 @@
 	autosetuprebase = always
 [alias]
   # publish commit on remote origin
-  review = push origin
+  review = push origin HEAD:refs/for/master
   # get the current branch name
 	branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
   # get the remote name
@@ -49,12 +49,14 @@
   # return the first line of the last commit
   last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
   # checkout a new branch with the given parameter as its name
-  ckb = !"checkbranch(){ [ git checkout -b $1;}; checkbranch"
+  ckb = !"checkbranch(){ git checkout -b $1; }; checkbranch"
   # show stashed changes by index - just because the stash@{X} syntax sucks
   sts = !"show_stash(){ git stash show stash@{$1} && git show stash@{$1}; }; show_stash"
   # fix a given sha1 with all the provided files (interactive rebase + !fixup + no editor = SCORE!!)
   fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=/bin/true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
 [commit]
-  template = /home/bvidal/.git-template.txt
+  template = ~/.git-template.txt
 [rebase]
 	autosquash = true
+[remote "origin"]
+  receivepack = git receive-pack --reviewer=canca@pentalog.fr --reviewer=rmistreanu@pentalog.fr --reviewer=andrei --reviewer=hao --reviewer=tyu --reviewer=dan
