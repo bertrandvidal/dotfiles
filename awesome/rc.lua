@@ -25,8 +25,8 @@ theme.wallpaper_cmd = { "awsetbg /home/bvidal/Pictures/bg.jpg" }
 terminal = "x-terminal-emulator"
 browser = "x-www-browser"
 nautilus = "nautilus --no-desktop"
-pidgin = "pidgin"
-eclipse = "eclipse/eclipse"
+skype = "skype"
+pycharm = "/usr/local/bin/pycharm"
 thunderbird = "thunderbird"
 lockscreen= "gnome-screensaver-command -l"
 volume_up = "amixer set Master 5%+"
@@ -250,8 +250,8 @@ globalkeys = awful.util.table.join(
     -- Custom keys
     awful.key({ modkey,           }, "F1", function () awful.screen.focus(2) end),
     awful.key({ modkey,           }, "F2", function () awful.screen.focus(1) end),
-    awful.key({ modkey,           }, "F5", function () awful.util.spawn(eclipse) end),
-    awful.key({ modkey,           }, "F6", function () awful.util.spawn(pidgin) end),
+    awful.key({ modkey,           }, "F5", function () awful.util.spawn(pycharm) end),
+    awful.key({ modkey,           }, "F6", function () awful.util.spawn(skype) end),
     awful.key({ modkey,           }, "F7", function () awful.util.spawn(thunderbird) end),
     awful.key({ modkey,           }, "F8", function () awful.util.spawn(browser) end),
     awful.key({ modkey,           }, "F9", function () awful.util.spawn(lockscreen) end),
