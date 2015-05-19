@@ -59,4 +59,4 @@
 [rebase]
 	autosquash = true
 [remote "origin"]
-  receivepack = git receive-pack --reviewer=canca@pentalog.fr --reviewer=rmistreanu@pentalog.fr --reviewer=andrei --reviewer=hao --reviewer=dan
+  receivepack = git receive-pack --reviewer=canca@pentalog.fr --reviewer=rmistreanu@pentalog.fr --reviewer=andrei --reviewer=hao --reviewer=dan --reviewer=dacroitoru
