@@ -75,9 +75,9 @@
 #       git@vger.kernel.org
 #
 
-if [ -f $HOME/dotfiles/git/pep8-pre-commit ]; then
+if [ -f $HOME/github/dotfiles/git/pep8-pre-commit ]; then
   function pep_pre_commit(){
-    cp $HOME/dotfiles/git/pep8-pre-commit .git/hooks/pre-commit
+    cp $HOME/github/dotfiles/git/pep8-pre-commit .git/hooks/pre-commit
   }
 fi
 
