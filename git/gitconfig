@@ -34,6 +34,7 @@
 	st = stash
  	stp = stash pop
   filelog = log -u --stat --oneline
+  co = checkout
   # pretty print all commit on the current branch
 	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/master..HEAD
   # push the next review (first pull rebase then push the next sha1)
