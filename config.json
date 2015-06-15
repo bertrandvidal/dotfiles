@@ -11,7 +11,6 @@
   "vim/vim/python-indent.vim": ".vim/python-indent.vim",
   "vim/vim/python.vim": ".vim/python.vim",
   "awesome/rc.lua": ".config/awesome/rc.lua",
-  "awesome/cpu.lua": ".config/awesome/cpu.lua",
   "awesome/keyboard_map.lua": ".config/awesome/keyboard_map.lua",
   "awesome/debian/menu.lua": ".config/awesome/debian/menu.lua"
 }
