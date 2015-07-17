@@ -120,5 +120,5 @@ host=`uname -n `
 [ -f $HOME/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 
 # (env)[clock]user@host:[git_status]cwd$
-export PS1='${debian_chroot:+($debian_chroot)}\[\e]0;\w\007\]\[\033[36m\][\@]\[\033[1;31m\]\u\[\033[0m\]@\H:\[\033[1;32m\]$(__git_ps1 "[%s]")\[\033[0m\]\W\$ '
+export PS1='${debian_chroot:+($debian_chroot)}\[\e]0;\w\007\]\[\033[36m\][\D{%I:%M}]\[\033[1;31m\]\u\[\033[0m\]@\H:\[\033[1;32m\]$(__git_ps1 "[%s]")\[\033[0m\]\W\$ '
 
