@@ -75,4 +75,8 @@ set ls=2
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
+" Load python.vim when opening a python file
 autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python.vim
+
+" Set line width to 72 for git commit message
+autocmd Filetype gitcommit setlocal spell textwidth=72
