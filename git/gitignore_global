@@ -55,6 +55,9 @@ Thumbs.db
 .project
 .pydevproject
 
+# pycharm files #
+#################
+.idea
 
 # old cvs files #
 #################
