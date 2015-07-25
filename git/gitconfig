@@ -59,5 +59,3 @@
   template = ~/.git-template.txt
 [rebase]
 	autosquash = true
-[remote "origin"]
-  receivepack = git receive-pack --reviewer=canca@pentalog.fr --reviewer=rmistreanu@pentalog.fr --reviewer=andrei --reviewer=hao --reviewer=dacroitoru --reviewer=dba
