@@ -1,7 +1,7 @@
 [user]
-	name = bertrand
-	email = bertrand.vidal@genirativ.fr
-	signingkey = Bertrand Vidal <bertrand.vidal@ginerativ.com>
+	name = bertrandvidal
+	email = vidal.bertrand@gmail.com
+	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vi
