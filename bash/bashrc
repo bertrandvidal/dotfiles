@@ -25,6 +25,7 @@ if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
 fi
+export TERM=xterm-256color
 
 alias vi='vim'
 alias ll='ls -Alh'
