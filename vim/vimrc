@@ -1,3 +1,31 @@
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set number
 set mouse=r
 set columns=80
@@ -14,8 +42,6 @@ set colorcolumn=80
 syntax on
 "Highlight search things
 set hlsearch
-
-colorscheme desert
 
 "Show matching bracets when text indicator is over them
 set showmatch
@@ -40,11 +66,39 @@ set matchtime=2
 set wildmode=longest:list,full
 set ttyfast
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+let g:SimpylFold_docstring_preview=1
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Map W and Q to do the same thing as w and q
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
+
+let python_highlight_all=1
+
+" enable 256 colors and zenburn scheme
+set t_Co=256
+colors zenburn
+
+" open NERDTree at vim start up
+autocmd vimenter * NERDTree | wincmd p
+" maps Ctrl-n to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" sync up NERDTree with the current file
+autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+" close vim if NERDTree is the only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " set the search scan to wrap lines
 set wrapscan
@@ -75,8 +129,15 @@ set ls=2
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
-" Load python.vim when opening a python file
-autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python.vim
+" YouCompleteMe customization
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Set python coding style when opening .py file
+autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" Hide pyc files from NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Set line width to 72 for git commit message
 autocmd Filetype gitcommit setlocal spell textwidth=72
