@@ -27,7 +27,7 @@ browser = "x-www-browser"
 nautilus = "nautilus --no-desktop"
 skype = "skype"
 pycharm = "pycharm"
-thunderbird = "thunderbird"
+control_center = "unity-control-center"
 lockscreen= "gnome-screensaver-command -l"
 volume_up = "amixer set Master 5%+"
 volume_down = "amixer set Master 5%-"
@@ -252,7 +252,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "F2", function () awful.screen.focus(1) end),
     awful.key({ modkey,           }, "F5", function () awful.util.spawn(pycharm) end),
     awful.key({ modkey,           }, "F6", function () awful.util.spawn(skype) end),
-    awful.key({ modkey,           }, "F7", function () awful.util.spawn(thunderbird) end),
+    awful.key({ modkey,           }, "F7", function () awful.util.spawn(control_center) end),
     awful.key({ modkey,           }, "F8", function () awful.util.spawn(browser) end),
     awful.key({ modkey,           }, "F9", function () awful.util.spawn(lockscreen) end),
     awful.key({ modkey,           }, "F10", function () awful.util.spawn(nautilus) end),
