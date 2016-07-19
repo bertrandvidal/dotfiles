@@ -149,7 +149,8 @@ COLORS=($grey $red $RED $green $GREEN $yellow $yellow $purple $PURPLE $blue $BLU
 CHROOT='${debian_chroot:+($debian_chroot)}'
 GIT_PROMPT='$(__git_ps1 "[%s]")'
 # only numbers of the md5 of the hostname
-HOST_MD5=`echo -n $HOSTNAME | md5sum | cut -d " " -f 1 | sed 's/[a-z]//g'`
+[ `which md5sum` ] && MD5_BIN=md5sum || MD5_BIN=md5
+HOST_MD5=`echo -n $HOSTNAME | $MD5_BIN | cut -d " " -f 1 | sed 's/[a-z]//g'`
 # modulo the last 8 digits of the hostname's md5 by the length of the colors array
 HOST_DIGIT=`expr ${HOST_MD5:8} % ${#COLORS[@]}`
 HOST_COLOR="${COLORS[$HOST_DIGIT]}"
