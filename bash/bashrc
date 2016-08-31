@@ -20,11 +20,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-fi
 export TERM=xterm-256color
 
 alias vi='vim'
@@ -41,6 +36,25 @@ alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
 alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
+
+# crowdtwist specifics
+[ -f /Users/bertrandvidal/src/docker/local.env ] && source /Users/bertrandvidal/src/docker/local.env; export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env)
+
+function dc_bash(){
+  docker exec -ti $1 bash
+}
+
+function mount-web-app(){
+  # called in a function to the calls to docker-machine are not made on login
+  port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)
+  sshfs root@$(docker-machine ip dev):/opt/crowdtwist ~/src/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $port
+  alias unmount-web-app="diskutil unmountDisk ~/src/web"
+}
+
+function dev(){
+  eval $(docker-machine env dev)
+  launchctl setenv CT_ENVIRONMENT local
+}
 
 # utiility functions
 
