@@ -36,8 +36,12 @@ alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
 alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
+alias jump='ssh bvidal@shell01.crowdtwist.com'
+alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrandvidal/.google_authenticator'
 
 # crowdtwist specifics
+export COMPOSE_HTTP_TIMEOUT=500
+alias dc="docker-compose -f ~/src/docker/docker-compose.yml"
 [ -f /Users/bertrandvidal/src/docker/local.env ] && source /Users/bertrandvidal/src/docker/local.env; export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env)
 
 function dc_bash(){
