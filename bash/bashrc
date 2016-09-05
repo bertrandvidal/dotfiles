@@ -139,7 +139,7 @@ GIT_PS1_SHOWUPSTREAM="auto verbose develop"
 which keychain 1>/dev/null 2>&1 && (keychain -q id_dsa && host=`uname -n ` && [ -f $HOME/.keychain/$host-sh ] && source $HOME/.keychain/$host-sh)
 
 # add bash to wakatime - https://wakatime.com/help/plugins/terminal
-[ ~/github/bash-wakatime/bash-wakatime.sh ]  && source ~/github/bash-wakatime/bash-wakatime.sh;
+[ -f ~/github/bash-wakatime/bash-wakatime.sh ]  && source ~/github/bash-wakatime/bash-wakatime.sh;
 
 # pythonrc for completion and history
 [ -f $HOME/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
@@ -177,9 +177,12 @@ HOST_COLOR="${COLORS[$HOST_DIGIT]}"
 export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$GREEN$GIT_PROMPT$NC\W\$ "
 
 # CrowdTwist Stuff
-source /opt/crowdtwist/tools/env/local.rc
-export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/opt/oracle/product/live/db/bin:/root/bin:/opt/sysconfig/bin:/opt/php/bin:/usr/local/apache2/bin:/opt/redis/product/live/bin/:/opt/mongodb/product/live/bin/
-. iset crowdtwist > /dev/null 2>&1
-. testsite > /dev/null 2>&1
-export NLS_LANG=American_America.UTF8
+if [ -f /opt/crowdtwist/tools/env/local.rc ];
+then
+  source /opt/crowdtwist/tools/env/local.rc
+  export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
+  export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/opt/oracle/product/live/db/bin:/root/bin:/opt/sysconfig/bin:/opt/php/bin:/usr/local/apache2/bin:/opt/redis/product/live/bin/:/opt/mongodb/product/live/bin/
+  . iset crowdtwist > /dev/null 2>&1
+  . testsite > /dev/null 2>&1
+  export NLS_LANG=American_America.UTF8
+fi
