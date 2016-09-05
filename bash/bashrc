@@ -179,6 +179,7 @@ export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$GREEN$GIT_PROMPT$NC\W\$ 
 # CrowdTwist Stuff
 if [ -f /opt/crowdtwist/tools/env/local.rc ];
 then
+  cd /opt/crowdtwist
   source /opt/crowdtwist/tools/env/local.rc
   export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
   export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/opt/oracle/product/live/db/bin:/root/bin:/opt/sysconfig/bin:/opt/php/bin:/usr/local/apache2/bin:/opt/redis/product/live/bin/:/opt/mongodb/product/live/bin/
