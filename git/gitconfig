@@ -1,29 +1,29 @@
 [user]
 	name = bertrandvidal
-	email = vidal.bertrand@gmail.com
-	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
+	email = bvidal@crowdtwist.com
+	signingkey = Bertrand Vidal <bvidal@crowdtwist.com>
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vi
+	editor = vim
 [color]
 	ui = true
 [branch]
 	autosetuprebase = always
 [alias]
   # publish commit on remote origin
-  review = push origin HEAD:refs/for/master
+  review = push origin develop
   # get the current branch name
 	branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
   # get the remote name
   remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
   # pull rebase fetch
-	reb = !"git pull --rebase origin master && git fetch origin"
+	reb = !"git pull --rebase origin develop && git fetch origin"
   # interactive rebase to n-th commit
   irb = !"irb() { git rebase -i HEAD~$1; }; irb"
   # goto to master and pull rebase
-  goto = !"git checkout master && git reb"
+  goto = !"git checkout develop && git reb"
   # commit ammend all current change (no-editor)
-  true-amend = "!sh -c \"GIT_EDITOR=/bin/true git commit -a --amend\""
+  true-amend = "!sh -c \"GIT_EDITOR=true git commit -a --amend\""
   # numbers of commit on the current branch
   nb-reviews = !"nb() { git ls | wc -l; }; nb"
   # interactive rebase to the root of the branch i.e. when you called git branch
@@ -36,17 +36,17 @@
   filelog = log -u --stat --oneline
   co = checkout
   # pretty print all commit on the current branch
-	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/master..HEAD
+	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
   # push the next review (first pull rebase then push the next sha1)
-  next-review= !"next() { git reb && git pr `git log --oneline origin/master..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
+  next-review= !"next() { git reb && git pr `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
   # push a specific sha1
   pr = !"pr(){ git push origin $1 ;}; pr"
   # list all the aliases
   listalias = "config --get-regexp alias.*"
   # list all commits on all branches
-  lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/master..$x; done"
+  lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/develop..$x; done"
   # go to master, pull rebase and remove merged branches
-  cleanbranch = !"git goto && for b in `git branch --merged | grep -v master`; do git branch -d $b; done"
+  cleanbranch = !"git goto && for b in `git branch --merged | grep -v develop`; do git branch -d $b; done"
   # return the first line of the last commit
   last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
   # checkout a new branch with the given parameter as its name
@@ -54,7 +54,7 @@
   # show stashed changes by index - just because the stash@{X} syntax sucks
   sts = !"show_stash(){ git stash show stash@{$1} && git show stash@{$1}; }; show_stash"
   # fix a given sha1 with all the provided files (interactive rebase + !fixup + no editor = SCORE!!)
-  fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=/bin/true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
+  fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
 [commit]
   template = ~/.git-template.txt
 [rebase]
