@@ -42,7 +42,7 @@ alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrand
 # crowdtwist specifics
 export COMPOSE_HTTP_TIMEOUT=500
 alias dc="docker-compose -f ~/src/docker/docker-compose.yml"
-[ -f /Users/bertrandvidal/src/docker/local.env ] && source /Users/bertrandvidal/src/docker/local.env; export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env)
+[ -f /Users/bertrandvidal/src/docker/local.env ] && (source /Users/bertrandvidal/src/docker/local.env; export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env))
 
 function dc_bash(){
   docker exec -ti $1 bash
