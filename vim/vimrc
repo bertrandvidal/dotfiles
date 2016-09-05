@@ -14,13 +14,11 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -28,7 +26,6 @@ filetype plugin indent on    " required
 
 set number
 set mouse=r
-set columns=80
 set ruler
 " Ignore case when searching
 set ignorecase
@@ -91,15 +88,6 @@ let python_highlight_all=1
 set t_Co=256
 colors zenburn
 
-" open NERDTree at vim start up
-autocmd vimenter * NERDTree | wincmd p
-" maps Ctrl-n to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" sync up NERDTree with the current file
-autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
-" close vim if NERDTree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " set the search scan to wrap lines
 set wrapscan
 
@@ -128,10 +116,6 @@ set ls=2
 " Highlight current line
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
-
-" YouCompleteMe customization
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Set python coding style when opening .py file
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
