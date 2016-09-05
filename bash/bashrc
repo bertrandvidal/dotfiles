@@ -136,7 +136,7 @@ GIT_PS1_SHOWUPSTREAM="auto verbose develop"
 [ -f ~/.git.bash ] && source ~/.git.bash
 
 # ssh agent
-which keychain && (keychain -q id_dsa && local host=`uname -n ` && [ -f $HOME/.keychain/$host-sh ] && source $HOME/.keychain/$host-sh)
+which keychain 1>/dev/null 2>&1 && (keychain -q id_dsa && host=`uname -n ` && [ -f $HOME/.keychain/$host-sh ] && source $HOME/.keychain/$host-sh)
 
 # add bash to wakatime - https://wakatime.com/help/plugins/terminal
 [ ~/github/bash-wakatime/bash-wakatime.sh ]  && source ~/github/bash-wakatime/bash-wakatime.sh;
