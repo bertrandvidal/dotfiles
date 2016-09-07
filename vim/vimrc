@@ -30,8 +30,8 @@ set ruler
 " Ignore case when searching
 set ignorecase
 set expandtab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set smarttab
 set guioptions+=aA
 
