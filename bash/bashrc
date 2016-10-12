@@ -32,7 +32,7 @@ fi
 export TERM=xterm-256color
 
 alias vi='vim'
-alias ll='ls -Alh'
+alias ll='ls -AlhG'
 alias l='ll'
 alias grep='grep --colour'
 alias egrep='egrep --colour'
