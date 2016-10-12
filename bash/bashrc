@@ -64,6 +64,16 @@ function dc_bash(){
   docker exec -ti $1 bash
 }
 
+function dc_log(){
+  dev
+  docker exec $1 tail -f /root/output.log
+}
+
+function dc_rebuild(){
+  dev
+  docker exec $1 rebuild
+}
+
 function mount-web-app(){
   # called in a function to the calls to docker-machine are not made on login
   port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)
