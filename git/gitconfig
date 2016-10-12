@@ -13,11 +13,11 @@
   # publish commit on remote origin
   review = push origin develop
   # get the current branch name
-	branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
+  branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
   # get the remote name
   remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
   # pull rebase fetch
-	reb = !"git pull --rebase origin develop && git fetch origin"
+  reb = !"git pull --rebase origin develop && git fetch origin"
   # interactive rebase to n-th commit
   irb = !"irb() { git rebase -i HEAD~$1; }; irb"
   # goto to master and pull rebase
@@ -28,15 +28,18 @@
   nb-reviews = !"nb() { git ls | wc -l; }; nb"
   # interactive rebase to the root of the branch i.e. when you called git branch
   root-rebase = "!sh -c \"git irb $((`git nb-reviews` + 1));\""
-	d = diff
-	s = status -s -b -unormal
-	ll = log --stat
-	st = stash
- 	stp = stash pop
+  d = diff
+  s = status -s -b -unormal
+  ll = log --stat
+  st = stash
+  stp = stash pop
   filelog = log -u --stat --oneline
   co = checkout
   # pretty print all commit on the current branch
-	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
+  ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
+  # pretty print all commit on the current branch
+  branch-ls = !"bls(){ other=${1:-develop} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
+  # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
   # push the next review (first pull rebase then push the next sha1)
   next-review= !"next() { git reb && git pr `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
   # push a specific sha1
