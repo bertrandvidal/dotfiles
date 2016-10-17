@@ -13,6 +13,6 @@ Tests:
 
 # @ mentions per Team
 @jtao @georgehlim @matthewsheahan @bertrandvidal @burakkarasu @Askent
-@fongstanley @chunpi @jchoe @georgesbraque @cokuyan
+@fongstanley @chunpi @jchoe @georgesbraque @cokuyan @dkarten
 @c-wright
 @pjuckiewicz
