@@ -31,6 +31,8 @@ control_center = "unity-control-center"
 lockscreen= "gnome-screensaver-command -l"
 volume_up = "amixer set Master 5%+"
 volume_down = "amixer set Master 5%-"
+backlight_up = "xbacklight +10"
+backlight_down = "xbacklight -10"
 screenshot = "gnome-screenshot"
 
 editor = os.getenv("EDITOR") or "editor"
@@ -259,6 +261,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "F12", function () awful.util.spawn(screenshot) end),
     awful.key({ modkey,           }, "Up", function () awful.util.spawn(volume_up) end),
     awful.key({ modkey,           }, "Down", function () awful.util.spawn(volume_down) end),
+    awful.key({ modkey, "Shift"   }, "Up", function () awful.util.spawn(backlight_up) end),
+    awful.key({ modkey, "Shift"   }, "Down", function () awful.util.spawn(backlight_down) end),
+
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
