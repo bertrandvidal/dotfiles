@@ -62,3 +62,7 @@
   template = ~/.git-template.txt
 [rebase]
 	autosquash = true
+[merge]
+	ff = no
+[pull]
+	ff = yes
