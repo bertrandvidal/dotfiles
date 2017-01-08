@@ -52,11 +52,11 @@ alias dc="docker-compose -f ~/src/docker/docker-compose.yml"
 alias jump='ssh bvidal@shell01.crowdtwist.com'
 alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrandvidal/.google_authenticator'
 alias unmount-web-app="diskutil unmountDisk ~/src/web"
-launchctl setenv CT_ENVIRONMENT local
 
 
 if [ -f /Users/bertrandvidal/src/docker/local.env ];
   then
+    launchctl setenv CT_ENVIRONMENT local
     source /Users/bertrandvidal/src/docker/local.env
     export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env)
 fi
