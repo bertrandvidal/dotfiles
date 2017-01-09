@@ -70,6 +70,11 @@ function dc_log(){
   docker exec $1 tail -f /root/output.log
 }
 
+function dc_restart(){
+  dev
+  docker exec $1 restart
+}
+
 function dc_rebuild(){
   dev
   docker exec $1 rebuild
@@ -149,6 +154,12 @@ function pygrep(){
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+if [ -f /usr/local/etc/bash_completion.d/docker-compose ]; then
+    . /usr/local/etc/bash_completion.d/docker-compose
 fi
 
 # dot file functions
