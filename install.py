@@ -59,7 +59,10 @@ def install_link(source, destination, directory="~"):
         os.unlink(full_destination)
         print "Unlinked %s" % full_destination
     print "Installing '%s' to '%s'" % (full_source, full_destination)
-    os.symlink(full_source, full_destination)
+    try:
+	os.symlink(full_source, full_destination)
+    except OSError:
+	print "\tCould not symlink %s to %s" % (full_source, full_destination)
 
 
 def install_sub_module(directory):
