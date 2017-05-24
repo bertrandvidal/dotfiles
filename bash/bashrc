@@ -85,7 +85,7 @@ function gtest() {
  pushd ~/src/J > /dev/null 2>&1
  for m in $*
    do
-     ./gradlew modules:$m:test
+     ./gradlew modules:$m:test --rerun-tasks
    done
  popd > /dev/null 2>&1
 }
