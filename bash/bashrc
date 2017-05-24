@@ -67,7 +67,7 @@ function dc_bash(){
 
 function dc_log(){
   dev
-  docker exec $1 tail -f /root/output.log
+  docker exec $1 tail -n 200 -f /root/output.log
 }
 
 function dc_restart(){
@@ -78,6 +78,16 @@ function dc_restart(){
 function dc_rebuild(){
   dev
   docker exec $1 rebuild
+}
+
+function gtest() {
+ # run gradle tess
+ pushd ~/src/J > /dev/null 2>&1
+ for m in $*
+   do
+     ./gradlew modules:$m:test
+   done
+ popd > /dev/null 2>&1
 }
 
 function mount-web-app(){
