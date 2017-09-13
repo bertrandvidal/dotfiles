@@ -95,10 +95,6 @@ function mount-web-app(){
   sshfs root@$(docker-machine ip dev):/opt/crowdtwist ~/crowdtwist/git/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $port
 }
 
-function dev(){
-  eval $(docker-machine env dev)
-}
-
 # utility functions
 
 function senv(){
