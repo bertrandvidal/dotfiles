@@ -21,6 +21,9 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# setup ls color properly
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
