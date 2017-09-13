@@ -51,17 +51,16 @@ alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
 
 # crowdtwist specifics
 export COMPOSE_HTTP_TIMEOUT=500
-alias dc="docker-compose -f ~/src/docker/docker-compose.yml"
+alias dc="docker-compose -f ~/crowdtwist/docker/docker-compose.yml"
 alias jump='ssh bvidal@shell01.crowdtwist.com'
 alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrandvidal/.google_authenticator'
-alias unmount-web-app="diskutil unmountDisk ~/src/web"
+alias unmount-web-app="diskutil unmountDisk ~/crowdtwist/git/web"
 
 
-if [ -f /Users/bertrandvidal/src/docker/local.env ];
+if [ -f /Users/bertrandvidal/crowdtwist/docker/local.env.sh ];
   then
     launchctl setenv CT_ENVIRONMENT local
-    source /Users/bertrandvidal/src/docker/local.env
-    export $(cut -d= -f1 /Users/bertrandvidal/src/docker/local.env)
+    export CT_ENVIRONMENT=local
 fi
 
 function dc_bash(){
@@ -69,23 +68,20 @@ function dc_bash(){
 }
 
 function dc_log(){
-  dev
   docker exec $1 tail -n 200 -f /root/output.log
 }
 
 function dc_restart(){
-  dev
   docker exec $1 restart
 }
 
 function dc_rebuild(){
-  dev
   docker exec $1 rebuild
 }
 
 function gtest() {
  # run gradle tess
- pushd ~/src/J > /dev/null 2>&1
+ pushd ~/crowdtwist/git/J > /dev/null 2>&1
  for m in $*
    do
      ./gradlew modules:$m:clean modules:$m:test modules:$m:installApp -S --refresh-dependencies --rerun-tasks
@@ -96,7 +92,7 @@ function gtest() {
 function mount-web-app(){
   # called in a function to the calls to docker-machine are not made on login
   port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)
-  sshfs root@$(docker-machine ip dev):/opt/crowdtwist ~/src/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $port
+  sshfs root@$(docker-machine ip dev):/opt/crowdtwist ~/crowdtwist/git/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $port
 }
 
 function dev(){
@@ -242,3 +238,9 @@ then
   . testsite > /dev/null 2>&1
   export NLS_LANG=American_America.UTF8
 fi
+
+# Docker environmental variables
+export SFTP_UID=501
+export J_REPO_PATH=/Users/bertrandvidal/crowdtwist/git/J
+export USER_FILES_PATH=/Users/bertrandvidal/crowdtwist/docker_files
+export SFTP_DIRECTORY=/Users/bertrandvidal/crowdtwist/docker_sftp
