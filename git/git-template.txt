@@ -10,9 +10,18 @@ PRM-
 # What have you tested to show it works ? unittest, manual testing, etc..
 Tests:
 
+# NoOp
+@CrowdTwist/noop
+@cokuyan @georgehlim @hps251 @dsong-work
 
 # @ mentions per Team
-@jtao @georgehlim @matthewsheahan @bertrandvidal @burakkarasu @Askent
-@fongstanley @chunpi @jchoe @georgesbraque @cokuyan @dkarten
-@c-wright
-@pjuckiewicz
+# Select *
+#@CrowdTwist/select
+#@amod-j @c-wright @dkarten @jtaoct @samdfonseca
+# One man army
+#@matthewsheahan
+# Professional Services
+#@CrowdTwist/pros
+#@fongstanley @chunpi @dkomorowski-crowdtwist
+# Paul & Mahesh
+#@pjuckiewicz @mprasadct
