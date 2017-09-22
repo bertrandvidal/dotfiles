@@ -55,6 +55,7 @@ alias dc="docker-compose -f ~/crowdtwist/docker/docker-compose.yml"
 alias jump='ssh bvidal@shell01.crowdtwist.com'
 alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrandvidal/.google_authenticator'
 alias unmount-web-app="diskutil unmountDisk ~/crowdtwist/git/web"
+alias mount-mount-app="sshfs root@127.0.0.1:/opt/crowdtwist/ ~/crowdtwist/git/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)"
 
 
 if [ -f /Users/bertrandvidal/crowdtwist/docker/local.env.sh ];
@@ -89,11 +90,7 @@ function gtest() {
  popd > /dev/null 2>&1
 }
 
-function mount-web-app(){
-  # called in a function to the calls to docker-machine are not made on login
-  port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)
-  sshfs root@$(docker-machine ip dev):/opt/crowdtwist ~/crowdtwist/git/web -o reconnect -o workaround=all -o volname=ct-server -o Ciphers=arcfour -C -p $port
-}
+
 
 # utility functions
 
