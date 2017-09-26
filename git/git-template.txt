@@ -12,7 +12,7 @@ Tests:
 
 # NoOp
 @CrowdTwist/noop
-@cokuyan @georgehlim @hps251 @dsong-work
+@cokuyan @georgehlim @hps251 @burakkarasu @dsong-work
 
 # @ mentions per Team
 # Select *
