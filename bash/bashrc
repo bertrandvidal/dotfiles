@@ -221,15 +221,29 @@ HOST_COLOR="${COLORS[$HOST_DIGIT]}"
 export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$GREEN$GIT_PROMPT$NC\W\$ "
 
 # CrowdTwist Stuff
-if [ -f /opt/crowdtwist/tools/env/local.rc ];
+if [ -f /opt/tns/tnsnames.ora ];
 then
-  cd /opt/crowdtwist
-  source /opt/crowdtwist/tools/env/local.rc
-  export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
-  export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/opt/oracle/product/live/db/bin:/root/bin:/opt/sysconfig/bin:/opt/php/bin:/usr/local/apache2/bin:/opt/redis/product/live/bin/:/opt/mongodb/product/live/bin/
-  . iset crowdtwist > /dev/null 2>&1
-  . testsite > /dev/null 2>&1
-  export NLS_LANG=American_America.UTF8
+	alias npm="echo Don\'t use npm, use ied && echo > /dev/null"
+	export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
+	export IOTK_SERVER_ENVIRONMENT=local
+	export TNS_ADMIN=/opt/tns
+	export CT_SITE_DOMAIN=crowdtwist.com
+	export CT_CLIENT_ID=2
+	export CT_CLIENT_DOMAIN=rosigolan.crowdtwist.com
+	export CT_SITE_ID=1
+	export IED_CACHE_DIR=/opt/crowdtwist/.ied_cache
+	export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/root/bin:/usr/lib/oracle/12.1/client64/bin
+	. iset crowdtwist > /dev/null 2>&1
+	. testsite > /dev/null 2>&1
+	export NLS_LANG=American_America.AL32UTF8
+	# Oracle sqlplus setup
+	ORACLE_HOME=/usr/lib/oracle/12.1/client64
+	LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
+	export ORACLE_HOME
+	export LD_LIBRARY_PATH
+	export PATH
+	DISABLE_AUTO_UPDATE=true
+    cd /opt/crowdtwist
 fi
 
 # Docker environmental variables
