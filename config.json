@@ -3,6 +3,7 @@
   "git/git.bash": ".git.bash",
   "git/gitignore_global": ".gitignore_global",
   "git/git-template.txt": ".git-template.txt",
+  "git/prepare-commit-msg": ".git_template/hooks/prepare-commit-msg",
   "ipython/ipython_config.py": ".ipython/profile_default/ipython_config.py",
   "bash/bashrc": ".bashrc",
   "bash/dotfile.sh": ".dotfile.sh",

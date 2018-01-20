@@ -66,3 +66,5 @@
 	ff = no
 [pull]
 	ff = yes
+[init]
+	templatedir = ~/.git_template
