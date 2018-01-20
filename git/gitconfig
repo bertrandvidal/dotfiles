@@ -18,6 +18,12 @@
   remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
   # pull rebase fetch
   reb = !"git pull --rebase origin develop && git fetch origin"
+  # Add a file/directory to your .gitignore
+  ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
+  # Show which commits are safe to amend/rebase
+  unpushed = log --oneline @{u}..
+  # Show the history difference between a local branche and its remote
+  divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
   # interactive rebase to n-th commit
   irb = !"irb() { git rebase -i HEAD~$1; }; irb"
   # goto to master and pull rebase
