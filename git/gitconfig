@@ -36,7 +36,9 @@
   filelog = log -u --stat --oneline
   co = checkout
   # pretty print all commit on the current branch
-  ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
+  ls = "!f() { pb=`git pb`; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
+  # parent branch
+  pb = "!f() { git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'; }; f"
   # pretty print all commit on the current branch
   branch-ls = !"bls(){ other=${1:-develop} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
   # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
