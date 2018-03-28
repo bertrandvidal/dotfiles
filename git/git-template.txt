@@ -12,18 +12,21 @@ Tests:
 
 # NoOp
 @CrowdTwist/noop
-@cokuyan @hps251 @burakkarasu @dsong-work @JosephKoCT
+@bertrandvidal @cokuyan @hps251 @burakkarasu @TheMadChemist @fhaqueCT
 
+### @ mentions per Team
 # Select*
-# @CrowdTwist/select
-# @amod-j @c-wright @dkarten @jtaoct @dsong-work
-# # EI team
-# @CrowdTwist/engineeringinitiatives
-# @georgehlim @matthewsheahan @phpid
-# # Professional Services
-# @CrowdTwist/pros
-# @fongstanley @chunpi @dkomorowski-crowdtwist @icespedes-CT @TheMadChemist
-# # DevOps
-# @isaiahh @ppaganCrowdtwist
-# # Paul & Mahesh
-# @pjuckiewicz @mprasadct
+#@CrowdTwist/select
+#@amod-j @dkarten @jtaoct @jblacker @dsong-work
+# EI team
+#@CrowdTwist/engineeringinitiatives
+#@georgehlim @matthewsheahan @phpid
+# Professional Services
+#@CrowdTwist/pros
+#@fongstanley @chunpi @dkomorowski-crowdtwist @icespedes-CT @JosephKoCT
+# DevOps
+#@isaiahh @ppaganCrowdtwist
+# Paul & Mahesh
+#@pjuckiewicz @mprasadct
+# Auto Tests
+#@dsong-work @mprasadct @jtaoct @fhaqueCT

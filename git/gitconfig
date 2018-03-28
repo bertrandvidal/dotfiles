@@ -7,8 +7,6 @@
 	editor = vim
 [color]
 	ui = true
-[branch]
-	autosetuprebase = always
 [alias]
   # publish commit on remote origin
   review = push origin develop
@@ -68,11 +66,5 @@
   fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
 [commit]
   template = ~/.git-template.txt
-[rebase]
-	autosquash = true
-[merge]
-	ff = no
-[pull]
-	ff = yes
 [init]
 	templatedir = ~/.git_template
