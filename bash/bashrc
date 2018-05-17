@@ -35,9 +35,9 @@ fi
 export TERM=xterm-256color
 
 alias vi='vim'
-alias ll='ls -AlhG'
-if [ -z "$debian_chroot" ]; then
-  alias ll='ls -alh --color'
+alias ll='ls -alh --color'
+if [ `uname` = "Darwin" ]; then
+    alias ll='ls -AlhG'
 fi
 alias l='ll'
 alias grep='grep --colour'
