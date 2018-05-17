@@ -1,2 +1,2 @@
 #!/bin/sh
-ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "\-[0-9]+\-" | head -1 | sed "s/-//g"`; grep -q $ISSUE_NUMBER $1 || sed -i -e 's/PRM-/PRM-'"$ISSUE_NUMBER"'/g' $1
+ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "\-[0-9]+\-" | head -1 | sed "s/-//g"`; grep -q PRM-$ISSUE_NUMBER $1 || sed -i -e 's/PRM-/PRM-'"$ISSUE_NUMBER"'/g' $1
