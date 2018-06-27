@@ -1,5 +1,5 @@
 # If applied, this commit will...
-PRM-
+EI-
 
 # Why are you doing this change ?
 
@@ -10,23 +10,25 @@ PRM-
 # What have you tested to show it works ? unittest, manual testing, etc..
 Tests:
 
-# NoOp
-@CrowdTwist/noop
-@bertrandvidal @cokuyan @hps251 @burakkarasu @TheMadChemist @fhaqueCT
+# TechVision
+@CrowdTwist/technical-vision
+@bertrandvidal @matthewsheahan @dkarten
 
-### @ mentions per Team
 # Select*
 #@CrowdTwist/select
-#@amod-j @dkarten @jtaoct @jblacker @dsong-work
-# EI team
-#@CrowdTwist/engineeringinitiatives
-#@georgehlim @matthewsheahan @phpid
+#@jtaoct @amod-j @hps251 @daniel-jin
+# GoTo
+#@CrowdTwist/goto
+#@jblacker @burakkarasu @TheMadChemist @dsong-work
+# Boba
+#@CrowdTwist/boba
+#@georgehlim @cokuyan @phpid @fhaqueCT
 # Professional Services
 #@CrowdTwist/pros
-#@fongstanley @chunpi @dkomorowski-crowdtwist @icespedes-CT @JosephKoCT
+#@fongstanley @chunpi @dkomorowski-crowdtwist @JosephKoCT
 # DevOps
 #@isaiahh @ppaganCrowdtwist
 # Paul & Mahesh
 #@pjuckiewicz @mprasadct
 # Auto Tests
-#@dsong-work @mprasadct @jtaoct @fhaqueCT
+#@mprasadct @dsong-work @fhaqueCT @daniel-jin @jtaoct
