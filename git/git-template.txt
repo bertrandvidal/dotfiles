@@ -12,7 +12,7 @@ Tests:
 
 # TechVision
 @CrowdTwist/technical-vision
-@bertrandvidal @matthewsheahan @dkarten
+@matthewsheahan @dkarten
 
 # Select*
 #@CrowdTwist/select
