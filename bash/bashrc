@@ -76,7 +76,7 @@ function dc_log(){
 }
 
 function dc_restart(){
-  docker exec $1 restart
+  docker exec $1 /root/restart.sh
 }
 
 function dc_rebuild(){
