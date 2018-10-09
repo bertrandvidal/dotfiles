@@ -10,25 +10,4 @@ EI-
 # What have you tested to show it works ? unittest, manual testing, etc..
 Tests:
 
-# TechVision
-@CrowdTwist/technical-vision
-@matthewsheahan @dkarten
 
-# Select*
-#@CrowdTwist/select
-#@jtaoct @amod-j @hps251 @daniel-jin
-# GoTo
-#@CrowdTwist/goto
-#@jblacker @burakkarasu @TheMadChemist @dsong-work
-# Boba
-#@CrowdTwist/boba
-#@georgehlim @cokuyan @phpid @fhaqueCT
-# Professional Services
-#@CrowdTwist/pros
-#@fongstanley @chunpi @dkomorowski-crowdtwist @JosephKoCT
-# DevOps
-#@isaiahh @ppaganCrowdtwist
-# Paul & Mahesh
-#@pjuckiewicz @mprasadct
-# Auto Tests
-#@mprasadct @dsong-work @fhaqueCT @daniel-jin @jtaoct
