@@ -64,7 +64,9 @@ alias mount-web-app="sshfs root@127.0.0.1:/opt/crowdtwist/ ~/crowdtwist/git/web 
 if [ -f /Users/bertrandvidal/crowdtwist/docker/local.env.sh ];
   then
     launchctl setenv CT_ENVIRONMENT local
+    launchctl setenv CT_DOMAIN local
     export CT_ENVIRONMENT=local
+    export CT_DOMAIN=local
 fi
 
 function dc_bash(){
@@ -224,6 +226,8 @@ then
 	alias npm="echo Don\'t use npm, use ied && echo > /dev/null"
 	export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
 	export IOTK_SERVER_ENVIRONMENT=local
+	export CT_ENVIRONMENT=local
+	export CT_DOMAIN=local
 	export TNS_ADMIN=/opt/tns
 	export CT_SITE_DOMAIN=crowdtwist.com
 	export CT_CLIENT_ID=2
