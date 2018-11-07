@@ -253,3 +253,4 @@ export SFTP_UID=501
 export J_REPO_PATH=/Users/bertrandvidal/crowdtwist/git/J
 export USER_FILES_PATH=/Users/bertrandvidal/crowdtwist/docker_files
 export SFTP_DIRECTORY=/Users/bertrandvidal/crowdtwist/docker_sftp
+export WEB_REPO_PATH=$HOME/crowdtwist/git/web
