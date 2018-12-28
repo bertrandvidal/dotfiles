@@ -55,7 +55,7 @@
   # list all commits on all branches
   lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/develop..$x; done"
   # go to master, pull rebase and remove merged branches
-  cleanbranch = !"git goto && for b in `git branch --merged | grep -v develop`; do git branch -d $b; done"
+  cleanbranch = !"git checkout master && git pull && for b in `git branch --merged | grep -v master`; do git branch -d $b; done"
   # return the first line of the last commit
   last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
   # checkout a new branch with the given parameter as its name
