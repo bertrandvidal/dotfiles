@@ -221,14 +221,14 @@ HOST_COLOR="${COLORS[$HOST_DIGIT]}"
 export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$GREEN$GIT_PROMPT$NC\W\$ "
 
 # CrowdTwist Stuff
-if [ -f /opt/tns/tnsnames.ora ];
+if [ -f /etc/tns/tnsnames.ora ];
 then
 	alias npm="echo Don\'t use npm, use ied && echo > /dev/null"
 	export IOTK_CONF=/opt/crowdtwist/conf/iotk/local/iotk_conf.php
 	export IOTK_SERVER_ENVIRONMENT=local
 	export CT_ENVIRONMENT=local
 	export CT_DOMAIN=local
-	export TNS_ADMIN=/opt/tns
+	export TNS_ADMIN=/etc/tns
 	export CT_SITE_DOMAIN=crowdtwist.com
 	export CT_CLIENT_ID=2
 	export CT_CLIENT_DOMAIN=rosigolan.crowdtwist.com
