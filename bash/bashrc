@@ -248,6 +248,12 @@ then
     cd /opt/crowdtwist
 fi
 
+export JENV_ROOT="/usr/local/Cellar/jenv/"
+
+if which jenv > /dev/null;
+	then eval "$(jenv init -)";
+fi
+
 # Docker environmental variables
 export SFTP_UID=501
 export J_REPO_PATH=/Users/bertrandvidal/crowdtwist/git/J
