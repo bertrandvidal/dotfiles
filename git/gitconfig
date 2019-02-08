@@ -48,9 +48,9 @@
   branch-ls = !"bls(){ other=${1:-develop} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
   # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
   # push the next review (first pull rebase then push the next sha1)
-  next-review= !"next() { git reb && git pr `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
-  # push a specific sha1
-  pr = !"pr(){ git push origin $1 ;}; pr"
+  next-review= !"next() { git reb && git push-branch `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
+  # push a given branch to origin or the current if no params given
+  push-branch = !"pr(){ branch=`git branch-name`; git push origin ${1:-$branch} ;}; pr"
   # list all the aliases
   listalias = "config --get-regexp alias.*"
   # list all commits on all branches
