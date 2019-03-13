@@ -95,7 +95,10 @@ function gtest() {
  popd > /dev/null 2>&1
 }
 
-
+# execute command as nobody
+ndo() {
+    sudo -u nobody bash -c ". /etc/profile.d/crowdtwist.sh; . /etc/profile.d/sqlplus.sh; $*"
+}
 
 # utility functions
 
