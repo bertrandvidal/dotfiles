@@ -100,6 +100,11 @@ ndo() {
     sudo -u nobody bash -c ". /etc/profile.d/crowdtwist.sh; . /etc/profile.d/sqlplus.sh; $*"
 }
 
+# retrieve conf values from configuration service
+ctconfig(){
+    curl "https://elb-config-$1.crowdtwist.com/configs?prefix=$2" | python -m json.tool
+}
+
 # utility functions
 
 function senv(){
