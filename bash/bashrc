@@ -56,12 +56,12 @@ alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
 export COMPOSE_HTTP_TIMEOUT=500
 alias dc="docker-compose -f ~/crowdtwist/docker/docker-compose.yml"
 alias jump='ssh bvidal@shell01.crowdtwist.com'
-alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertrandvidal/.google_authenticator'
+alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertvidal/.google_authenticator'
 alias unmount-web-app="diskutil unmountDisk ~/crowdtwist/git/web"
 alias mount-web-app="sshfs root@127.0.0.1:/opt/crowdtwist/ ~/crowdtwist/git/web -o reconnect -o volname=ct-server -C -p $(docker inspect --format='{{(index (index .NetworkSettings.Ports "22/tcp") 0).HostPort}}' web 2> /dev/null)"
 
 
-if [ -f /Users/bertrandvidal/crowdtwist/docker/local.env.sh ];
+if [ -f /Users/bertvidal/crowdtwist/docker/local.env.sh ];
   then
     launchctl setenv CT_ENVIRONMENT local
     launchctl setenv CT_DOMAIN local
@@ -264,7 +264,7 @@ fi
 
 # Docker environmental variables
 export SFTP_UID=501
-export J_REPO_PATH=/Users/bertrandvidal/crowdtwist/git/J
-export USER_FILES_PATH=/Users/bertrandvidal/crowdtwist/docker_files
-export SFTP_DIRECTORY=/Users/bertrandvidal/crowdtwist/docker_sftp
+export J_REPO_PATH=/Users/bertvidal/crowdtwist/git/J
+export USER_FILES_PATH=/Users/bertvidal/crowdtwist/docker_files
+export SFTP_DIRECTORY=/Users/bertvidal/crowdtwist/docker_sftp
 export WEB_REPO_PATH=$HOME/crowdtwist/git/web
