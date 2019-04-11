@@ -45,7 +45,7 @@
   # parent branch
   pb = "!f() { git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'; }; f"
   # pretty print all commit on the current branch
-  branch-ls = !"bls(){ other=${1:-develop} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
+  branch-ls = !"bls(){ other=${1:-origin/master} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
   # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
   # push the next review (first pull rebase then push the next sha1)
   next-review= !"next() { git reb && git push-branch `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
