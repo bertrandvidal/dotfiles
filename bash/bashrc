@@ -34,6 +34,10 @@ fi
 
 export TERM=xterm-256color
 
+if [ -d ~/Library/Python/3.7/bin  ]; then
+    PATH=$PATH:~/Library/Python/3.7/bin
+fi
+
 alias vi='vim'
 alias ll='ls -alh --color'
 if [ `uname` = "Darwin" ]; then
