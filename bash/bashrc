@@ -55,6 +55,7 @@ alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
 alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
+alias exit='say peace out; \exit'
 
 # crowdtwist specifics
 export COMPOSE_HTTP_TIMEOUT=500
