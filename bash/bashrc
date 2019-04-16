@@ -175,9 +175,6 @@ function pygrep(){
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-if [ `which brew 2> /dev/null`  ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 if [ -f /usr/local/etc/bash_completion.d/docker-compose ]; then
     . /usr/local/etc/bash_completion.d/docker-compose
 fi
@@ -188,7 +185,8 @@ fi
 # git/prompt file
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto verbose develop"
+GIT_PS1_SHOWUPSTREAM="auto verbose git legacy name"
+GIT_PS1_SHOWCOLORHINTS=1
 [ -f ~/.git.bash ] && source ~/.git.bash
 
 
