@@ -78,6 +78,11 @@ if [ -f /Users/bertvidal/crowdtwist/docker/local.env.sh ];
     export CT_DOMAIN=local
 fi
 
+
+function title_iterm(){
+    echo -ne "\033]0;${*}\007"
+}
+
 function dc_bash(){
   docker exec -ti $1 bash
 }
