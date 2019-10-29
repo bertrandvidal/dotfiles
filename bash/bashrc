@@ -78,6 +78,9 @@ if [ -f /Users/bertvidal/crowdtwist/docker/local.env.sh ];
     export CT_DOMAIN=local
 fi
 
+function utc(){
+    date -u +"%Y-%m-%dT%H:%M:%S"
+}
 
 function title_iterm(){
     echo -ne "\033]0;${*}\007"
