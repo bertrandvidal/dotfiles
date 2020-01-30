@@ -1,7 +1,7 @@
 [user]
 	name = bertrandvidal
-	email = bvidal@crowdtwist.com
-	signingkey = Bertrand Vidal <bvidal@crowdtwist.com>
+	email = bert.vidal@oracle.come
+	signingkey = Bertrand Vidal <bert.vidal@oracle.com>
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
