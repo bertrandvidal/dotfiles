@@ -1,6 +1,6 @@
 [user]
 	name = bertrandvidal
-	email = bert.vidal@oracle.come
+	email = bert.vidal@oracle.com
 	signingkey = Bertrand Vidal <bert.vidal@oracle.com>
 [core]
 	excludesfile = ~/.gitignore_global
