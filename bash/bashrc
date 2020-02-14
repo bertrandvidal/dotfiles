@@ -172,7 +172,7 @@ done
 # yay or nay command
 function yon() {
     RESULT=$?
-    COMMAND=`which say`
+    COMMAND=`which say 1>/dev/null 2>&1`
     [ $? -eq 1 ] && COMMAND=`which echo`
     [ $RESULT -eq 0 ] && $COMMAND "GREAT SUCCESS" || $COMMAND "YOU FAILED"
 }
