@@ -169,6 +169,14 @@ done
  x-www-browser http://www.google.com/search?q=$query >/dev/null &
 }
 
+# yay or nay command
+function yon() {
+    RESULT=$?
+    COMMAND=`which say`
+    [ $? -eq 1 ] && COMMAND=`which echo`
+    [ $RESULT -eq 0 ] && $COMMAND "GREAT SUCCESS" || $COMMAND "YOU FAILED"
+}
+
 #kill process holding the specified file
 function fdkill(){
   lsof $1 | grep -v PID | kill -9 `awk '{print $2}'`
