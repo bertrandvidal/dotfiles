@@ -204,12 +204,15 @@ fi
 [ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
 
 # git/prompt file
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto verbose git legacy name"
-GIT_PS1_SHOWCOLORHINTS=1
-[ -f ~/.git.bash ] && source ~/.git.bash
-
+GIT_PROMPT=''
+if [ -f ~/.git.bash ]; then
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM="auto verbose git legacy name"
+    GIT_PS1_SHOWCOLORHINTS=1
+    source ~/.git.bash
+    GIT_PROMPT='$(__git_ps1 "[%s]")'
+fi
 
 # ssh agent
 [ -f ~/.ssh/id_rsa ] && ssh-add -K ~/.ssh/id_rsa 1>/dev/null 2>&1
@@ -222,7 +225,6 @@ GIT_PS1_SHOWCOLORHINTS=1
 
 # (env)[clock]user@host:[git_status]cwd$
 CHROOT='${debian_chroot:+($debian_chroot)}'
-GIT_PROMPT='$(__git_ps1 "[%s]")'
 # Handle md5 bin in linux vs OSX
 [ `which md5sum` ] && MD5_BIN=md5sum || MD5_BIN=md5
 # md5 hostname, take last 2 bytes (value between 0 and 255) = color of hostname
