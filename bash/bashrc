@@ -230,11 +230,11 @@ CHROOT='${debian_chroot:+($debian_chroot)}'
 # md5 hostname, take last 2 bytes (value between 0 and 255) = color of hostname
 HOST_COLOR=`printf "\[\033[1;38;5;%dm\]" "$((0x$(hostname | $MD5_BIN | cut -f1 -d' ' | tr -d '\n' | tail -c2)))"`
 
-cyan='\[\033[0;36m\]'
-RED='\[\033[1;31m\]'
-green='\[\033[0;32m\]'
+cyan='\[\033[1;38;5;4m\]'
+RED='\[\033[1;38;5;202m\]'
+blue='\[\033[1;38;5;25m\]'
 NC='\[\033[0m\]'
-export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$green$GIT_PROMPT$NC\W\$ "
+export PS1="$CHROOT$cyan[\A]$RED\u$NC@$HOST_COLOR\H$NC:$blue$GIT_PROMPT$NC\W\$ "
 
 # CrowdTwist Stuff
 if [ -f /etc/tns/tnsnames.ora ];
