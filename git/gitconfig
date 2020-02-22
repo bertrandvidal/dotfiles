@@ -63,6 +63,7 @@
   ckb = !"checkbranch(){ git checkout -b $1; }; checkbranch"
   # show stashed changes by index - just because the stash@{X} syntax sucks
   sts = !"show_stash(){ git stash show stash@{$1} && git show stash@{$1}; }; show_stash"
+  stl = !"git stash list --color=always --format='%gd: %C(bold) %>(14)%Cgreen%cr %C(red)%gs'"
   # fix a given sha1 with all the provided files (interactive rebase + !fixup + no editor = SCORE!!)
   fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
   restore-file = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
