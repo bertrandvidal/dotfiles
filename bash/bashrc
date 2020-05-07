@@ -59,7 +59,7 @@ alias vawesome="vi ~/.config/awesome/rc.lua"
 alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
-alias generate_password='< /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-8};echo;'
+alias generate_password='LC_CTYPE=C tr -dc "a-zA-Z0-9" < /dev/urandom | head -c${1:-12}; echo'
 alias exit='say peace out; \exit'
 
 # crowdtwist specifics

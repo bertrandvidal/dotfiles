@@ -32,7 +32,7 @@
   nb-reviews = !"nb() { git ls | wc -l; }; nb"
   # interactive rebase to the root of the branch i.e. when you called git branch
   root-rebase = "!sh -c \"git irb $((`git nb-reviews` + 1));\""
-  f = !git fetch || echo "Gretchen, stop trying to make fetch happen\\!"
+  f = !git fetch || say "Gretchen, stop trying to make fetch happen\\!"
   d = diff
   s = status -s -b -unormal
   ll = log --stat
