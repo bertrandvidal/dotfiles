@@ -234,7 +234,6 @@ cyan='\[\033[1;38;5;6m\]'
 RED='\[\033[1;38;5;202m\]'
 GIT_PROMPT_COLOR='\[\033[1;38;5;25m\]'
 NC='\[\033[0m\]'
-export PS1="$CHROOT$cyan[\A `date +%Z`]$RED\u$NC@$HOST_COLOR\H$NC:$GIT_PROMPT_COLOR$GIT_PROMPT$NC\W\$ "
 
 # CrowdTwist Stuff
 if [ -f /etc/tns/tnsnames.ora ];
@@ -254,6 +253,8 @@ then
 	. iset crowdtwist > /dev/null 2>&1
 	. testsite > /dev/null 2>&1
 	export NLS_LANG=American_America.AL32UTF8
+    # Differentiate git prompt color for web-container work
+    GIT_PROMPT_COLOR=`printf "\[\033[1;38;5;%dm\]" "$((0x$(cat /sys/class/net/eth0/address | $MD5_BIN | cut -f1 -d' ' | tr -d '\n' | tail -c2)))"`
 	# Oracle sqlplus setup
 	ORACLE_HOME=/usr/lib/oracle/12.1/client64
 	LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
@@ -263,6 +264,8 @@ then
 	DISABLE_AUTO_UPDATE=true
     cd /opt/crowdtwist
 fi
+
+export PS1="$CHROOT$cyan[\A `date +%Z`]$RED\u$NC@$HOST_COLOR\H$NC:$GIT_PROMPT_COLOR$GIT_PROMPT$NC\W\$ "
 
 export JENV_ROOT="/usr/local/Cellar/jenv/"
 
