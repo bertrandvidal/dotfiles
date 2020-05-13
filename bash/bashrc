@@ -270,7 +270,7 @@ export PS1="$CHROOT$cyan[\A `date +%Z`]$RED\u$NC@$HOST_COLOR\H$NC:$GIT_PROMPT_CO
 export JENV_ROOT="/usr/local/Cellar/jenv/"
 
 if which keychain > /dev/null 2>&1; then
-    keychain $HOME/.ssh/id_dsa
+    keychain -q $HOME/.ssh/id_rsa
 fi
 
 if which jenv > /dev/null 2>&1;
