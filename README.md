@@ -17,6 +17,7 @@ mkdir ~/github && \
 ```sh
 # working at CrowdTwist/Oracle
 docker cp ~/.ssh/id_rsa web:/root/.ssh && \
+docker cp ~/.ssh/id_rsa.pub web:/root/.ssh && \
 docker exec -ti web rpm -ivh http://packages.psychotic.ninja/7/base/x86_64/RPMS/keychain-2.8.0-3.el7.psychotic.noarch.rpm && \
 docker exec -ti web keychain /root/.ssh/id_rsa && \
 docker exec -ti web mkdir /root/github && \
