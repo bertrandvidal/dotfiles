@@ -254,7 +254,7 @@ then
 	. testsite > /dev/null 2>&1
 	export NLS_LANG=American_America.AL32UTF8
     # Differentiate git prompt color for web-container work
-    GIT_PROMPT_COLOR=`printf "\[\033[1;38;5;%dm\]" "$((0x$(cat /sys/class/net/eth0/address | $MD5_BIN | cut -f1 -d' ' | tr -d '\n' | tail -c2)))"`
+    GIT_PROMPT_COLOR=`printf "\[\033[1;38;5;%dm\]" "$((0x$(cat /proc/1/cpuset | $MD5_BIN | cut -f1 -d' ' | tr -d '\n' | tail -c2)))"`
 	# Oracle sqlplus setup
 	ORACLE_HOME=/usr/lib/oracle/12.1/client64
 	LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
