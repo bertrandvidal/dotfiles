@@ -15,6 +15,11 @@ mkdir ~/github && \
    vim -c PluginInstall
 ```
 
+```sh
+# working at CrowdTwist/Oracle
+docker cp ~/.ssh/id_rsa web:/root/.ssh
+```
+
 On a \*nix machine
 ```sh
 sudo apt-get install awesome awesome-extra git ipython keychain vim && \
