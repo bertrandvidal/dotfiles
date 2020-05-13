@@ -18,6 +18,11 @@ mkdir ~/github && \
 ```sh
 # working at CrowdTwist/Oracle
 docker cp ~/.ssh/id_rsa web:/root/.ssh
+
+# from within the web container
+rpm --import http://wiki.psychotic.ninja/RPM-GPG-KEY-psychotic && \
+    rpm -ivh http://packages.psychotic.ninja/6/base/i386/RPMS/psychotic-release-1.0.0-1.el6.psychotic.noarch.rpm && \
+    yum --enablerepo=psychotic install keychain
 ```
 
 On a \*nix machine
