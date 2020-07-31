@@ -73,3 +73,5 @@
 	templatedir = ~/.git_template
 [credential]
 	helper = cache --timeout=3600
+[pull]
+	ff = only
