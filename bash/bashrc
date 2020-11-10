@@ -55,7 +55,6 @@ alias ntl='nautilus ./ 2>/dev/null &'
 alias vbash='vi ~/.bashrc'
 alias srcbash='. ~/.bashrc'
 alias setbg="awsetbg -f $HOME/Pictures/bg.jpg"
-alias vawesome="vi ~/.config/awesome/rc.lua"
 alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
