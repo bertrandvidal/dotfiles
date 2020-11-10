@@ -31,7 +31,7 @@ docker exec -ti web passwd
 
 On a \*nix machine
 ```sh
-sudo apt-get install awesome awesome-extra git ipython keychain vim && \
+sudo apt-get install git ipython keychain vim && \
   ssh-keygen -t dsa (generate a new ssh key, add it to github)
 ```
 
