@@ -64,6 +64,7 @@ alias please='sudo'
 
 # crowdtwist specifics
 export COMPOSE_HTTP_TIMEOUT=500
+export HOSTNAME=`hostname`
 alias dc="docker-compose -f ~/crowdtwist/docker/docker-compose.yml"
 alias jump='ssh bvidal@shell01.crowdtwist.com'
 alias auth='cd ~/tools/ && java -classpath ./ Authenticator.Main /Users/bertvidal/.google_authenticator'
