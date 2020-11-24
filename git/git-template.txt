@@ -1,5 +1,5 @@
 # If applied, this commit will...
-CTEI-
+{{ISSUE_NUMBER}}
 
 # Why are you doing this change ?
 

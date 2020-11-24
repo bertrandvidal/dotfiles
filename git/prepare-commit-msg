@@ -5,8 +5,8 @@
 # 3. Grp for repeated digits between '-'
 # 4. Preserve only the first occurrence of digits
 # 5. Remove '-'
-ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "\-[0-9]+\-" | head -1 | sed "s/-//g"`
+ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+\-[0-9]+" | head -1 | tr [a-z] [A-Z]`
 
 # If the git commit message template (i.e. $1) doesn't contain the ticket name + number
 # then replace the placeholder
-grep -q CTEI-$ISSUE_NUMBER $1 || sed -i -e 's/CTEI-/CTEI-'"$ISSUE_NUMBER"'/g' $1
+grep -q $ISSUE_NUMBER $1 || sed -i -e 's/{{ISSUE_NUMBER}}/'"$ISSUE_NUMBER"'/g' $1
