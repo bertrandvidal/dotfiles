@@ -2,11 +2,11 @@
 # Retrieve the ticket number from the branch name assuming that branch name is using '-' as separator
 # 1. Get name of current branch as refs/heads/<branch-name>
 # 2. Cut '/' to retain only 3rd element
-# 3. Grp for repeated digits between '-'
-# 4. Preserve only the first occurrence of digits
-# 5. Remove '-'
+# 3. Grep for '<letters>-<digits>'
+# 4. Preserve only the first match of the previous patter
+# 5. Capitalize letters
 ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+\-[0-9]+" | head -1 | tr [a-z] [A-Z]`
 
-# If the git commit message template (i.e. $1) doesn't contain the ticket name + number
-# then replace the placeholder
+# If the git commit message template (i.e. $1) does contain the ticket name + number
+# then replace the placeholder {{ISSUE_NUMBER}} with the value extracted from the branch name
 grep -q $ISSUE_NUMBER $1 || sed -i -e 's/{{ISSUE_NUMBER}}/'"$ISSUE_NUMBER"'/g' $1
