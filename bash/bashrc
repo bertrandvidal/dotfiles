@@ -250,15 +250,15 @@ then
 	export CT_CLIENT_DOMAIN=rosigolan.crowdtwist.com
 	export CT_SITE_ID=1
 	export IED_CACHE_DIR=/opt/crowdtwist/.ied_cache
-	export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/root/bin:/usr/lib/oracle/12.1/client64/bin
+	export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/crowdtwist/app/bin:/root/bin:/usr/lib/oracle/18.5/client64/bin
 	. iset crowdtwist > /dev/null 2>&1
 	. testsite > /dev/null 2>&1
 	export NLS_LANG=American_America.AL32UTF8
     # Differentiate git prompt color for web-container work
     GIT_PROMPT_COLOR=`printf "\[\033[1;38;5;%dm\]" "$((0x$(cat /proc/1/cpuset | $MD5_BIN | cut -f1 -d' ' | tr -d '\n' | tail -c2)))"`
 	# Oracle sqlplus setup
-	ORACLE_HOME=/usr/lib/oracle/12.1/client64
-	LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
+	ORACLE_HOME=/usr/lib/oracle/18.5/client64
+	LD_LIBRARY_PATH=/usr/lib/oracle/18.5/client64/lib
 	export ORACLE_HOME
 	export LD_LIBRARY_PATH
 	export PATH
