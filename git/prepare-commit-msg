@@ -3,7 +3,7 @@
 # 1. Get name of current branch as refs/heads/<branch-name>
 # 2. Cut '/' to retain only 3rd element
 # 3. Grep for '<letters>-<digits>'
-# 4. Preserve only the first match of the previous patter
+# 4. Preserve only the first match of the previous pattern
 # 5. Capitalize letters
 ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+\-[0-9]+" | head -1 | tr [a-z] [A-Z]`
 
