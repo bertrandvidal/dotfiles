@@ -159,15 +159,6 @@ function killbyname(){
  kill `ps aux | grep $1 | grep -v grep | awk '{print $2}'`
 }
 
-# search a word on google
-function google(){
-query=
-for word in $*
-do
-  query="${query}+${word}"
-done
- x-www-browser http://www.google.com/search?q=$query >/dev/null &
-}
 
 # yay or nay command
 function yon() {
