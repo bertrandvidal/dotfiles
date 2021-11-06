@@ -20,13 +20,13 @@
   ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
   # Show which commits are safe to amend/rebase
   unpushed = log --oneline @{u}..
-  # Show the history difference between a local branche and its remote
+  # Show the history difference between a local branch and its remote
   divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
   # interactive rebase to n-th commit
   irb = !"irb() { git rebase -i HEAD~$1; }; irb"
   # goto to master and pull rebase
   goto = !"git checkout develop && git reb"
-  # commit ammend all current change (no-editor)
+  # commit amend all current change (no-editor)
   true-amend = "!sh -c \"git commit -a --amend --no-edit\""
   # numbers of commit on the current branch
   nb-reviews = !"nb() { git ls | wc -l; }; nb"
