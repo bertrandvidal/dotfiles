@@ -55,7 +55,6 @@ alias ntl='nautilus ./ 2>/dev/null &'
 alias vbash='vi ~/.bashrc'
 alias srcbash='. ~/.bashrc'
 alias setbg="awsetbg -f $HOME/Pictures/bg.jpg"
-alias openid='echo http://bvidal-ltutech-com.myopenid.com/'
 alias vgit='vi ~/.gitconfig'
 alias dmesg='dmesg -T'
 alias generate_password='LC_CTYPE=C tr -dc "a-zA-Z0-9" < /dev/urandom | head -c${1:-12}; echo'
