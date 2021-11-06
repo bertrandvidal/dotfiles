@@ -169,13 +169,6 @@ function fdkill(){
 }
 
 
-# allows to grep the parameter in any python file
-function pygrep(){
- SEARCH_PATH="."
- [ $# -gt 1 ] && SEARCH_PATH=$2
- find $SEARCH_PATH -name "*.py" -not -path "./env/*" -and -not -path "./*egg*/*" -exec egrep --color -in $1 {} +
-}
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
