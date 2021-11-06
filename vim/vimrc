@@ -117,8 +117,5 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " Set python coding style when opening .py file
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
-" Hide pyc files from NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
 " Set line width to 72 for git commit message
 autocmd Filetype gitcommit setlocal spell textwidth=72
