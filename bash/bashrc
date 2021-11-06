@@ -149,11 +149,6 @@ function psgp(){
 }
 
 
-# recursively grep the first argument
-function rgp(){
- egrep -rniI "$1" *
-}
-
 # kill a process by name
 function killbyname(){
  kill `ps aux | grep $1 | grep -v grep | awk '{print $2}'`
