@@ -1,14 +1,13 @@
 #!/usr/bin/python
 """Allows to deploy dotfiles to local machines."""
 
-import os
-import sys
-import json
-from datetime import datetime
-import shutil
 import imp
+import json
+import os
+import shutil
+import sys
 import uuid
-
+from datetime import datetime
 
 CURRENT_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)))
 
@@ -60,9 +59,9 @@ def install_link(source, destination, directory="~"):
         print "Unlinked %s" % full_destination
     print "Installing '%s' to '%s'" % (full_source, full_destination)
     try:
-	os.symlink(full_source, full_destination)
+        os.symlink(full_source, full_destination)
     except OSError:
-	print "\tCould not symlink %s to %s" % (full_source, full_destination)
+        print "\tCould not symlink %s to %s" % (full_source, full_destination)
 
 
 def install_sub_module(directory):
