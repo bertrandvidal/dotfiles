@@ -32,8 +32,3 @@ On a \*nix machine
 sudo apt-get install git ipython keychain vim && \
   ssh-keygen -t dsa (generate a new ssh key, add it to github)
 ```
-
-ToDo
-====
-
-* Add the concept of profile so I can have my personal/pro dotfiles
