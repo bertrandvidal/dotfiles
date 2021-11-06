@@ -1,7 +1,9 @@
 [user]
 	name = bertrandvidal
-	email = bert.vidal@oracle.com
-	signingkey = Bertrand Vidal <bert.vidal@oracle.com>
+	email = vidal.bertrand@gmail.com
+	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
+[includeIf "gitdir:~/crowdtwist/"]
+   path = ~/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
