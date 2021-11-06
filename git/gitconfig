@@ -8,67 +8,67 @@
 [color]
 	ui = true
 [alias]
-  # publish commit on remote origin
-  review = push origin develop
-  # get the current branch name
-  branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
-  # get the remote name
-  remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
-  # pull rebase fetch
-  reb = !"git pull --rebase origin develop && git fetch origin"
-  # Add a file/directory to your .gitignore
-  ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
-  # Show which commits are safe to amend/rebase
-  unpushed = log --oneline @{u}..
-  # Show the history difference between a local branch and its remote
-  divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
-  # interactive rebase to n-th commit
-  irb = !"irb() { git rebase -i HEAD~$1; }; irb"
-  # goto to master and pull rebase
-  goto = !"git checkout develop && git reb"
-  # commit amend all current change (no-editor)
-  true-amend = "!sh -c \"git commit -a --amend --no-edit\""
-  # numbers of commit on the current branch
-  nb-reviews = !"nb() { git ls | wc -l; }; nb"
-  # interactive rebase to the root of the branch i.e. when you called git branch
-  root-rebase = "!sh -c \"git irb $((`git nb-reviews` + 1));\""
-  f = !git fetch || say "Gretchen, stop trying to make fetch happen\\!"
-  d = diff
-  s = status -s -b -unormal
-  ll = log --stat
-  st = stash
-  stp = stash pop
-  filelog = log -u --stat --oneline
-  co = checkout
-  # pretty print all commit on the current branch
-  ls = "!f() { pb=`git pb`; pb=${pb:-master} ; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
-  # parent branch
-  pb = "!f() { git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'; }; f"
-  # pretty print all commit on the current branch
-  branch-ls = !"bls(){ other=${1:-origin/master} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
-  # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
-  # push the next review (first pull rebase then push the next sha1)
-  next-review= !"next() { git reb && git push-branch `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
-  # push a given branch to origin or the current if no params given
-  push-branch = !"pr(){ branch=`git branch-name`; git push origin ${1:-$branch} ;}; pr"
-  # list all the aliases
-  listalias = "config --get-regexp alias.*"
-  # list all commits on all branches
-  lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/develop..$x; done"
-  # go to master, pull rebase and remove merged branches
-  clb = !"git checkout master && git pull && for b in `git branch --merged | grep -v master`; do git branch -d $b; done"
-  # return the first line of the last commit
-  last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
-  # checkout a new branch with the given parameter as its name
-  ckb = !"checkbranch(){ git checkout -b $1; }; checkbranch"
-  # show stashed changes by index - just because the stash@{X} syntax sucks
-  sts = !"show_stash(){ git stash show stash@{$1} && git show stash@{$1}; }; show_stash"
-  stl = !"git stash list --color=always --format='%gd: %C(bold) %>(14)%Cgreen%cr %C(red)%gs'"
-  # fix a given sha1 with all the provided files (interactive rebase + !fixup + no editor = SCORE!!)
-  fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
-  restore-file = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
+    # publish commit on remote origin
+    review = push origin develop
+    # get the current branch name
+    branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
+    # get the remote name
+    remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
+    # pull rebase fetch
+    reb = !"git pull --rebase origin develop && git fetch origin"
+    # Add a file/directory to your .gitignore
+    ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
+    # Show which commits are safe to amend/rebase
+    unpushed = log --oneline @{u}..
+    # Show the history difference between a local branch and its remote
+    divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
+    # interactive rebase to n-th commit
+    irb = !"irb() { git rebase -i HEAD~$1; }; irb"
+    # goto to master and pull rebase
+    goto = !"git checkout develop && git reb"
+    # commit amend all current change (no-editor)
+    true-amend = "!sh -c \"git commit -a --amend --no-edit\""
+    # numbers of commit on the current branch
+    nb-reviews = !"nb() { git ls | wc -l; }; nb"
+    # interactive rebase to the root of the branch i.e. when you called git branch
+    root-rebase = "!sh -c \"git irb $((`git nb-reviews` + 1));\""
+    f = !git fetch || say "Gretchen, stop trying to make fetch happen\\!"
+    d = diff
+    s = status -s -b -unormal
+    ll = log --stat
+    st = stash
+    stp = stash pop
+    filelog = log -u --stat --oneline
+    co = checkout
+    # pretty print all commit on the current branch
+    ls = "!f() { pb=`git pb`; pb=${pb:-master} ; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
+    # parent branch
+    pb = "!f() { git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'; }; f"
+    # pretty print all commit on the current branch
+    branch-ls = !"bls(){ other=${1:-origin/master} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
+    # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
+    # push the next review (first pull rebase then push the next sha1)
+    next-review= !"next() { git reb && git push-branch `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
+    # push a given branch to origin or the current if no params given
+    push-branch = !"pr(){ branch=`git branch-name`; git push origin ${1:-$branch} ;}; pr"
+    # list all the aliases
+    listalias = "config --get-regexp alias.*"
+    # list all commits on all branches
+    lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/develop..$x; done"
+    # go to master, pull rebase and remove merged branches
+    clb = !"git checkout master && git pull && for b in `git branch --merged | grep -v master`; do git branch -d $b; done"
+    # return the first line of the last commit
+    last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
+    # checkout a new branch with the given parameter as its name
+    ckb = !"checkbranch(){ git checkout -b $1; }; checkbranch"
+    # show stashed changes by index - just because the stash@{X} syntax sucks
+    sts = !"show_stash(){ git stash show stash@{$1} && git show stash@{$1}; }; show_stash"
+    stl = !"git stash list --color=always --format='%gd: %C(bold) %>(14)%Cgreen%cr %C(red)%gs'"
+    # fix a given sha1 with all the provided files (interactive rebase + !fixup + no editor = SCORE!!)
+    fixup = !"fix(){ [ $# -eq 1 ] && (fixme_sha1=$1; fixme_msg=`git log -1 --format=\"%s\" $fixme_sha1`; git commit -a -m \"fixup! $fixme_msg\"; GIT_EDITOR=true git rebase -i HEAD~`git log ${fixme_sha1}^..HEAD --pretty=oneline | wc -l`) || echo \"Usage: 'git fixup sha1_to_fix'\";}; fix"
+    restore-file = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 [commit]
-  template = ~/.git-template.txt
+    template = ~/.git-template.txt
 [init]
 	templatedir = ~/.git_template
 [credential]
