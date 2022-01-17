@@ -8,8 +8,5 @@
   "ipython/ipython_config.py": ".ipython/profile_default/ipython_config.py",
   "bash/bashrc": ".bashrc",
   "bash/dotfile.sh": ".dotfile.sh",
-  "vim/vimrc": ".vimrc",
-  "vim/vim/pydoc.vim": ".vim/pydoc.vim",
-  "vim/vim/python-indent.vim": ".vim/python-indent.vim",
-  "vim/vim/python.vim": ".vim/python.vim"
+  "vim/vimrc": ".vimrc"
 }
