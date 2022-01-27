@@ -42,6 +42,7 @@
     stp = stash pop
     filelog = log -u --stat --oneline
     co = checkout
+    annotate = blame
     # pretty print all commit on the current branch
     ls = "!f() { pb=`git pb`; pb=${pb:-master} ; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
     # parent branch
