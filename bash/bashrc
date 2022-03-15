@@ -126,7 +126,7 @@ ctconfig(){
 # utility functions
 
 function senv(){
-  ENV_DIR=env
+  [ -d env  ] && ENV_DIR=env || ENV_DIR=venv
   [ $# -eq 1 ] && ENV_DIR=$1
   source $ENV_DIR/bin/activate
 }
