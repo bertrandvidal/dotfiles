@@ -8,5 +8,6 @@
   "ipython/ipython_config.py": ".ipython/profile_default/ipython_config.py",
   "bash/bashrc": ".bashrc",
   "bash/dotfile.sh": ".dotfile.sh",
-  "vim/vimrc": ".vimrc"
+  "vim/vimrc": ".vimrc",
+  "rectangle/rectangle-config.json": ".rectangle-config.json"
 }
