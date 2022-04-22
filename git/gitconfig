@@ -13,7 +13,7 @@
     # publish commit on remote origin
     review = push origin develop
     # get the current branch name
-    branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
+    branch-name = !git branch --show-current
     # get the remote name
     remote-name = !git config branch.`git name-rev --name-only HEAD`.remote
     # pull rebase fetch
