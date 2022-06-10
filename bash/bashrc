@@ -161,6 +161,7 @@ function yon() {
     COMMAND=`which say 2>/dev/null`
     [ $? -eq 1 ] && COMMAND=`which echo`
     [ $RESULT -eq 0 ] && $COMMAND "IT'S A BINGO" || $COMMAND "YOU FAILED"
+    return $RESULT
 }
 
 #kill process holding the specified file
