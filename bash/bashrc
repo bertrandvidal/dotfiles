@@ -121,7 +121,7 @@ ndo() {
 
 # retrieve conf values from configuration service
 ctconfig(){
-    curl "https://config-$1.crowdtwist.com/configs?prefix=$2" | python -m json.tool
+    curl "https://config-$1.crowdtwist.com/configs?prefix=$2" | python3 -m json.tool
 }
 
 # utility functions
