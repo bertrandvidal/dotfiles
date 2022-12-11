@@ -1,7 +1,6 @@
 {
   "git/gitconfig": ".gitconfig",
   "git/gitconfig_work": ".gitconfig_work",
-  "git/git.bash": ".git.bash",
   "git/gitignore_global": ".gitignore_global",
   "git/git-template.txt": ".git-template.txt",
   "git/prepare-commit-msg": ".git_template/hooks/prepare-commit-msg",
