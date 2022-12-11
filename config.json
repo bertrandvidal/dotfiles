@@ -7,5 +7,7 @@
   "git/prepare-commit-msg": ".git_template/hooks/prepare-commit-msg",
   "bash/dotfile.sh": ".dotfile.sh",
   "vim/vimrc": ".vimrc",
-  "rectangle/rectangle-config.json": ".rectangle-config.json"
+  "rectangle/rectangle-config.json": ".rectangle-config.json",
+  "zsh/zshrc": ".zshrc",
+  "zsh/zprofile": ".zprofile"
 }
