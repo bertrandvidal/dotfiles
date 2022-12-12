@@ -26,7 +26,7 @@
     divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
     # interactive rebase to n-th commit
     irb = !"irb() { git rebase -i HEAD~$1; }; irb"
-    # goto to master and pull rebase
+    # goto to main and pull rebase
     goto = !"git checkout develop && git reb"
     # commit amend all current change (no-editor)
     true-amend = "!sh -c \"git commit -a --amend --no-edit\""
@@ -44,11 +44,11 @@
     co = checkout
     annotate = blame
     # pretty print all commit on the current branch
-    ls = "!f() { pb=`git pb`; pb=${pb:-master} ; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
+    ls = "!f() { pb=`git pb`; pb=${pb:-main} ; b=${1:-$pb}; echo \">> origin/$b\"; git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate origin/$b.. ; }; f"
     # parent branch
     pb = "!f() { git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'; }; f"
     # pretty print all commit on the current branch
-    branch-ls = !"bls(){ other=${1:-origin/master} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
+    branch-ls = !"bls(){ other=${1:-origin/main} && git log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" --decorate $other..; }; bls"
     # log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%an]%Cred%d" --decorate origin/develop..HEAD
     # push the next review (first pull rebase then push the next sha1)
     next-review= !"next() { git reb && git push-branch `git log --oneline origin/develop..HEAD | tail -n 1 | cut -d\" \" -f 1`; }; next"
@@ -58,8 +58,8 @@
     listalias = "config --get-regexp alias.*"
     # list all commits on all branches
     lsr = !"for x in `git branch | sed 's/*//'`; do echo $x :; git log --oneline origin/develop..$x; done"
-    # go to master, pull rebase and remove merged branches
-    clb = !"git checkout master && git pull && for b in `git branch --merged | grep -v master`; do git branch -d $b; done"
+    # go to main, pull rebase and remove merged branches
+    clb = !"git checkout main && git pull && for b in `git branch --merged | grep -v main`; do git branch -d $b; done"
     # return the first line of the last commit
     last-commit-msg = !"msg=`git ls | head -n 1` && echo ${msg#*:}"
     # checkout a new branch with the given parameter as its name
