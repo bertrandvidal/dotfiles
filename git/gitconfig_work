@@ -1,3 +1,5 @@
 [user]
-	email = bert.vidal@oracle.com
-	signingkey = Bertrand Vidal <bert.vidal@oracle.com>
+    email = bert.vidal@energyhub.net
+    name = Bert Vidal
+[pull]
+    rebase = true
