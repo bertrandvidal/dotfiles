@@ -5,7 +5,7 @@
 # 3. Grep for '<letters>-<digits>'
 # 4. Preserve only the first match of the previous pattern
 # 5. Capitalize letters
-ISSUE_NUMBER=`git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+[_-][0-9]+" | head -1 | tr "[:lower:]_" "[:upper:]-"`
+ISSUE_NUMBER=$(git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+[_-][0-9]+" | head -1 | tr "[a-z]_" "[A-Z]-")
 
 # If the git commit message template (i.e. $1) does contain the ticket name + number
 # then replace the placeholder {{ISSUE_NUMBER}} with the value extracted from the branch name
