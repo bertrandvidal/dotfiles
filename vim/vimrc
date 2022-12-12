@@ -82,6 +82,10 @@ nnoremap <C-H> <C-W><C-H>
 
 let python_highlight_all=1
 
+" arrow keys behave as expected
+set whichwrap+=<,>,[,]
+
+
 " enable 256 colors and zenburn scheme
 set t_Co=256
 colors zenburn
