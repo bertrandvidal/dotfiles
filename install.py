@@ -23,7 +23,7 @@ INSTALL_METHOD = "install"
 def read_config():
     """Read the config file if it is exist, exit otherwise."""
     if not os.path.exists(CONFIG_FILE):
-        print "No config file found at '%s'" % CONFIG_FILE
+        print("No config file found at '%s'" % CONFIG_FILE)
         sys.exit(1)
     with open(CONFIG_FILE, "r") as fd:
         return json.load(fd)
@@ -45,7 +45,7 @@ def install_link(source, destination, directory="~"):
     full_destination = os.path.expandvars(os.path.join(directory, destination))
     full_source = os.path.join(CURRENT_FOLDER, source)
     if not os.path.exists(full_source):
-        print "Source '%s' does not exists. Skipping" % full_source
+        print("Source '%s' does not exists. Skipping" % full_source)
         return
     if not os.path.exists(os.path.dirname(full_destination)):
         os.makedirs(os.path.dirname(full_destination))
@@ -53,15 +53,16 @@ def install_link(source, destination, directory="~"):
         if not os.path.islink(full_destination):
             backup_file = "%s.%s.bak" % (full_destination,
                                          datetime.now().strftime(DEFAULT_TIME_FORMAT))
-            print "'%s' exists, creating backup file %s" % (full_destination, backup_file)
+            print("'%s' exists, creating backup file %s" % (full_destination,
+                                                            backup_file))
             shutil.copy(full_destination, backup_file)
         os.unlink(full_destination)
-        print "Unlinked %s" % full_destination
-    print "Installing '%s' to '%s'" % (full_source, full_destination)
+        print("Unlinked %s" % full_destination)
+    print("Installing '%s' to '%s'" % (full_source, full_destination))
     try:
         os.symlink(full_source, full_destination)
     except OSError:
-        print "\tCould not symlink %s to %s" % (full_source, full_destination)
+        print("\tCould not symlink %s to %s" % (full_source, full_destination))
 
 
 def install_sub_module(directory):
@@ -74,13 +75,13 @@ def install_sub_module(directory):
         for name in dir(module):
             obj = getattr(module, name)
             if callable(obj) and obj.__name__ == INSTALL_METHOD:
-                print "Calling %s:%s" % (install_script, obj.__name__)
+                print("Calling %s:%s" % (install_script, obj.__name__))
                 obj()
 
 
 def install():
     config = read_config()
-    for source, destination in config.iteritems():
+    for source, destination in config.items():
         install_link(source, destination)
     for directory in [d for d in os.listdir(CURRENT_FOLDER)
                       if os.path.isdir(d)]:
