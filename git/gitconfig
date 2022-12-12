@@ -2,9 +2,7 @@
 	name = bertrandvidal
 	email = vidal.bertrand@gmail.com
 	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
-[includeIf "gitdir:~/crowdtwist/"]
-   path = ~/.gitconfig_work
-[includeIf "gitdir:/opt/crowdtwist/"]
+[includeIf "gitdir:~/work/"]
    path = ~/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
