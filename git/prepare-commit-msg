@@ -9,4 +9,4 @@ ISSUE_NUMBER=$(git symbolic-ref HEAD | cut -d/ -f3 | grep -Eo "^[a-zA-Z]+[_-][0-
 
 # If the git commit message template (i.e. $1) does not contain the ticket name + number (happens when amending)
 # then replace the first line, with the value extracted from the branch name
-grep -q $ISSUE_NUMBER $1 || sed -i -e '1 s/.*/'"$ISSUE_NUMBER"'/' $1
+grep -q "$ISSUE_NUMBER" "$1" || sed -i -e '1 s/\(.*\)/'"$ISSUE_NUMBER"' : \1/' "$1"
