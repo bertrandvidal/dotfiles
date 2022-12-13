@@ -1,5 +1,4 @@
-# If applied, this commit will...
-{{ISSUE_NUMBER}}
+
 
 # Why are you doing this change ?
 
