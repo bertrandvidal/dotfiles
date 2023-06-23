@@ -95,6 +95,9 @@ alias exit='say peace out; \exit'
 alias please='sudo'
 alias gimme='curl -LfO'
 
+# Pagination in the same "console"
+export PAGER=""
+
 ## EnergyHub
 
 # Added by devenv/dev-machine-setup Fri Nov 18 15:34:37 EST 2022
