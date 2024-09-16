@@ -13,5 +13,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
     git clone git@github.com:bertrandvidal/dotfiles.git ~/github/dotfiles && \
     python ~/github/dotfiles/install.py && \
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
-    vim -c PluginInstall
+    vim -c PluginInstall &&
+    brew install MonitorControl bluesnooze --cask rectangle
 ```
