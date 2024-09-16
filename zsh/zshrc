@@ -126,6 +126,9 @@ eval "$(pyenv init -)"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+alias ddb-local='dynamodb-admin -p 12345 1>/dev/null 2>&1 &'
+alias mec-down='docker compose -f docker-compose.yml -f docker-compose.mec.yml --project-name dev down'
+
 ## Functions
 
 # yay or nay command

@@ -72,6 +72,7 @@
     template = ~/.git-template.txt
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [credential]
 	helper = cache --timeout=3600
 [pull]
