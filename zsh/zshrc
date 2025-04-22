@@ -102,11 +102,14 @@ export PAGER=""
 
 # Added by devenv/dev-machine-setup Fri Nov 18 15:34:37 EST 2022
 export PATH="${PATH}:/Users/bvidal/work/devenv/bin"
-[ -f "/Users/bvidal/work/devenv/lib/eh_functions.sh" ] && . /Users/bvidal/work/devenv/lib/eh_functions.sh
+[ -f "/Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile" ] && . /Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile
 
 # EH vars
 export EH_DEVENV_PREFIX="/Users/bvidal/work/devenv"
 export SCRIPTS_HOME="/Users/bvidal/work/scripts"
+export SNOWFLAKE_USERNAME=bertrand.vidal@energyhub.net
+export SNOWFLAKE_ACCOUNT=vtb88351.us-east-1
+
 
 # All the secret stuff!
 [ -f "/Users/bvidal/.secrets" ] && . /Users/bvidal/.secrets
@@ -128,6 +131,7 @@ eval "$(jenv init -)"
 
 alias ddb-local='dynamodb-admin -p 12345 1>/dev/null 2>&1 &'
 alias mec-down='docker compose -f docker-compose.yml -f docker-compose.mec.yml --project-name dev down'
+alias pies='cd ~/work/partner-integration-exchange-service'
 
 ## Functions
 
