@@ -118,7 +118,7 @@ export SNOWFLAKE_ACCOUNT=vtb88351.us-east-1
 export PYTHONPATH="${PYTHONPATH}:/Users/bvidal/work/scripts"
 
 # Dev stuff
-export PATH="/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/mysql-client/bin/:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/mysql-client/bin/:$HOME/.local/bin:$PATH"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
