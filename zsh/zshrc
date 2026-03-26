@@ -159,3 +159,4 @@ function mkcd(){
 # dot file functions
 [ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
 
+source /Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile
