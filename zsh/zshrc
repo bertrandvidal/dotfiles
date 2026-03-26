@@ -127,7 +127,8 @@ eval "$(pyenv init -)"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# shadow jenv to prevent eager eval
+jenv() { unfunction jenv; eval "$(command jenv init -)"; jenv "$@"; }
 
 alias ddb-local='dynamodb-admin -p 12345 1>/dev/null 2>&1 &'
 alias mec-down='docker compose -f docker-compose.yml -f docker-compose.mec.yml --project-name dev down'
