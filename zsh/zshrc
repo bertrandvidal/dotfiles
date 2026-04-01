@@ -133,6 +133,8 @@ jenv() { unfunction jenv; eval "$(command jenv init -)"; jenv "$@"; }
 alias ddb-local='dynamodb-admin -p 12345 1>/dev/null 2>&1 &'
 alias mec-down='docker compose -f docker-compose.yml -f docker-compose.mec.yml --project-name dev down'
 alias pies='cd ~/work/partner-integration-exchange-service'
+function cert-file() { while openssl x509 -sha256 -noout -text -issuer -subject -fingerprint -dates -ext extendedKeyUsage; do :; done < $@ }
+function cert-web() { echo | openssl s_client -connect $1:${2:-443} -showcerts }
 
 ## Functions
 
