@@ -98,27 +98,8 @@ alias gimme='curl -LfO'
 # Pagination in the same "console"
 export PAGER=""
 
-## EnergyHub
-
-# Added by devenv/dev-machine-setup Fri Nov 18 15:34:37 EST 2022
-export PATH="${PATH}:/Users/bvidal/work/devenv/bin"
-[ -f "/Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile" ] && . /Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile
-
-# EH vars
-export EH_DEVENV_PREFIX="/Users/bvidal/work/devenv"
-export SCRIPTS_HOME="/Users/bvidal/work/scripts"
-export SNOWFLAKE_USERNAME=bertrand.vidal@energyhub.net
-export SNOWFLAKE_ACCOUNT=vtb88351.us-east-1
-
-
 # All the secret stuff!
 [ -f "/Users/bvidal/.secrets" ] && . /Users/bvidal/.secrets
-
-# Python
-export PYTHONPATH="${PYTHONPATH}:/Users/bvidal/work/scripts"
-
-# Dev stuff
-export PATH="/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/mysql-client/bin/:$HOME/.local/bin:$PATH"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -130,11 +111,6 @@ export PATH="$HOME/.jenv/bin:$PATH"
 # shadow jenv to prevent eager eval
 jenv() { unfunction jenv; eval "$(command jenv init -)"; jenv "$@"; }
 
-alias ddb-local='dynamodb-admin -p 12345 1>/dev/null 2>&1 &'
-alias mec-down='docker compose -f docker-compose.yml -f docker-compose.mec.yml --project-name dev down'
-alias pies='cd ~/work/partner-integration-exchange-service'
-function cert-file() { while openssl x509 -sha256 -noout -text -issuer -subject -fingerprint -dates -ext extendedKeyUsage; do :; done < $@ }
-function cert-web() { echo | openssl s_client -connect $1:${2:-443} -showcerts }
 
 ## Functions
 
@@ -162,4 +138,3 @@ function mkcd(){
 # dot file functions
 [ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
 
-source /Users/bvidal/work/devenv/dev-machine-setup/bin/ehprofile
