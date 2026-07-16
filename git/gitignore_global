@@ -71,3 +71,5 @@ Thumbs.db
 # virtualenv dir #
 ##################
 env/
+
+**/.claude/settings.local.json
