@@ -111,6 +111,8 @@ export PATH="$HOME/.jenv/bin:$PATH"
 # shadow jenv to prevent eager eval
 jenv() { unfunction jenv; eval "$(command jenv init -)"; jenv "$@"; }
 
+# PATH manipulation
+export PATH="$HOME/.local/bin:$PATH"
 
 ## Functions
 
@@ -138,3 +140,6 @@ function mkcd(){
 # dot file functions
 [ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
 
+
+# Entire CLI shell completion
+autoload -Uz compinit && compinit && source <(entire completion zsh)
