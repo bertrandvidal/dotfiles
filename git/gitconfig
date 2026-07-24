@@ -23,7 +23,7 @@
     # Show which commits are safe to amend/rebase
     unpushed = log --oneline @{u}..
     # Show the history difference between a local branch and its remote
-    divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" ${1:-`git branch-name`}..origin/${1:-`git branch-name`} ;}; f"
+    divergence = "!f() { git log --graph --decorate --oneline --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]%Cred%d\" origin/${1:-`git branch-name`}..${1:-`git branch-name`} ;}; f"
     # interactive rebase to n-th commit
     irb = !"irb() { git rebase -i HEAD~$1; }; irb"
     # commit amend all current change (no-editor)
