@@ -103,8 +103,8 @@ export PAGER=""
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null && eval "$(pyenv init -)"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -142,4 +142,5 @@ function mkcd(){
 
 
 # Entire CLI shell completion
-autoload -Uz compinit && compinit && source <(entire completion zsh)
+autoload -Uz compinit && compinit
+command -v entire >/dev/null && source <(entire completion zsh)
