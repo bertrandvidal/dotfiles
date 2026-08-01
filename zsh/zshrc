@@ -144,3 +144,17 @@ function mkcd(){
 # Entire CLI shell completion
 autoload -Uz compinit && compinit
 command -v entire >/dev/null && source <(entire completion zsh)
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/bvidal/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+## Justworks dev setup
+source /opt/dev/dev.sh
+export GOPRIVATE=github.com/justworkshr
+
+# mise/asdf setup
+eval "$(mise activate zsh)"
+# asdf compatibility alias
+alias asdf=mise
