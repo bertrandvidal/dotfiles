@@ -158,3 +158,6 @@ export GOPRIVATE=github.com/justworkshr
 eval "$(mise activate zsh)"
 # asdf compatibility alias
 alias asdf=mise
+
+# env setup for ~/work/calendar
+eval "$(direnv hook zsh)"
