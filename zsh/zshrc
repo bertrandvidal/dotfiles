@@ -160,6 +160,4 @@ eval "$(mise activate zsh)"
 alias asdf=mise
 
 # env setup for ~/work/calendar
-# silencing direnv
-export DIRENV_LOG_FORMAT=""
 eval "$(direnv hook zsh)"
