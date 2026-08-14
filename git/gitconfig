@@ -1,7 +1,7 @@
 [user]
 	name = bertrandvidal
 	email = vidal.bertrand@gmail.com
-	signingkey = Bertrand Vidal <vidal.bertrand@gmail.com>
+	signingkey = /Users/bvidal/.ssh/id_ed25519.pub
 [includeIf "gitdir:~/work/"]
    path = ~/.gitconfig_work
 [core]
@@ -70,6 +70,7 @@
     restore-file = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 [commit]
     template = ~/.git-template.txt
+	gpgsign = true
 [init]
 	templatedir = ~/.git_template
 	defaultBranch = main
@@ -79,3 +80,5 @@
 	ff = only
 [submodule]
 	recurse = true
+[gpg]
+	format = ssh
