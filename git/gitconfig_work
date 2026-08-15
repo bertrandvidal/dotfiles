@@ -1,5 +1,10 @@
 [user]
     email = bvidal@justworks.com
     name = Bert Vidal
+    signingkey = /Users/bvidal/.ssh/id_ed25519.pub
 [pull]
     rebase = true
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
