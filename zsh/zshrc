@@ -151,15 +151,15 @@ compinit
 # End of Docker CLI completions
 
 ## Justworks dev setup
-source /opt/dev/dev.sh
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 export GOPRIVATE=github.com/justworkshr
 
 # mise/asdf setup
-eval "$(mise activate zsh)"
+command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"
 # asdf compatibility alias
 alias asdf=mise
 
 # env setup for ~/work/calendar
 # silencing direnv
 export DIRENV_LOG_FORMAT=""
-eval "$(direnv hook zsh)"
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
