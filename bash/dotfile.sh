@@ -23,7 +23,7 @@ function dotstatus(){
 # Pull changes from the repo
 function dotpull(){
   cd $DOTFILE > /dev/null
-  git pull --rebase origin master && git fetch origin
+  git pull --rebase origin main && git fetch origin
   cd - > /dev/null
 }
 
@@ -44,7 +44,7 @@ function dotpush(){
   cd $DOTFILE > /dev/null
   commit_msg="Dirty commit"
   [ $# -ne 0 ] && commit_msg=$*
-  git commit -a -m "$commit_msg" && git push origin master
+  git commit -a -m "$commit_msg" && git push origin main
   cd - > /dev/null
 }
 
