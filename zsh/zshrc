@@ -163,3 +163,6 @@ alias asdf=mise
 # silencing direnv
 export DIRENV_LOG_FORMAT=""
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+
+# tfswitch setup
+export PATH="$PATH:$HOME/bin"
