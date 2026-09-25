@@ -166,3 +166,6 @@ command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # tfswitch setup
 export PATH="$PATH:$HOME/bin"
+
+# opencode
+export PATH=/Users/bvidal/.opencode/bin:$PATH
