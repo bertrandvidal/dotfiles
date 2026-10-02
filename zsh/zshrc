@@ -169,3 +169,6 @@ export PATH="$PATH:$HOME/bin"
 
 # opencode
 export PATH=/Users/bvidal/.opencode/bin:$PATH
+if [[ -z "$BIFROST_API_KEY" ]]; then
+  export BIFROST_API_KEY=$(op read "op://Private/Bifrost Virtual Key/credential" 2>/dev/null)
+fi
