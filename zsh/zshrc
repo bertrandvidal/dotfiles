@@ -169,6 +169,12 @@ export PATH="$PATH:$HOME/bin"
 
 # opencode
 export PATH=/Users/bvidal/.opencode/bin:$PATH
-if [[ -z "$BIFROST_API_KEY" ]]; then
+if [[ -z "$BIFROST_API_KEY" || -z "$SNOWFLAKE_MCP_CLIENT_ID" || -z "$SNOWFLAKE_MCP_CLIENT_SECRET" ]]; then
+  export OP_BIOMETRIC_UNLOCK_ENABLED=true
   export BIFROST_API_KEY=$(op read "op://Private/Bifrost Virtual Key/credential" 2>/dev/null)
+  export SNOWFLAKE_MCP_CLIENT_ID=$(op read "op://Private/Snowflake MCP/username" 2>/dev/null)
+  export SNOWFLAKE_MCP_CLIENT_SECRET=$(op read "op://Private/Snowflake MCP/credential" 2>/dev/null)
 fi
+
+# AsyncAPI CLI Autocomplete
+ASYNCAPI_AC_ZSH_SETUP_PATH=/Users/bvidal/Library/Caches/@asyncapi/cli/autocomplete/zsh_setup && test -f $ASYNCAPI_AC_ZSH_SETUP_PATH && source $ASYNCAPI_AC_ZSH_SETUP_PATH; # asyncapi autocomplete setup
