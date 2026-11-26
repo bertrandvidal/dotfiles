@@ -7,6 +7,7 @@
   "bash/dotfile.sh": ".dotfile.sh",
   "vim/vimrc": ".vimrc",
   "rectangle/rectangle-config.json": ".rectangle-config.json",
+  "ssh/config": ".ssh/config",
   "zsh/zshrc": ".zshrc",
   "zsh/zprofile": ".zprofile"
 }
