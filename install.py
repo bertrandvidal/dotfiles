@@ -1,12 +1,10 @@
 #!/usr/bin/python
 """Allows to deploy dotfiles to local machines."""
 
-import imp
 import json
 import os
 import shutil
 import sys
-import uuid
 from datetime import datetime
 
 CURRENT_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)))
@@ -14,10 +12,6 @@ CURRENT_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)))
 DEFAULT_TIME_FORMAT = "%Y%m%d%H%M%S"
 
 CONFIG_FILE = os.path.join(CURRENT_FOLDER, "config.json")
-
-INSTALL_SCRIPT = "install.py"
-
-INSTALL_METHOD = "install"
 
 
 def read_config():
@@ -65,27 +59,10 @@ def install_link(source, destination, directory="~"):
         print("\tCould not symlink %s to %s" % (full_source, full_destination))
 
 
-def install_sub_module(directory):
-    """If a python file named install.py is found in the given directory it will
-    be imported and if a method named 'install' is found it will be called."""
-    install_script = os.path.abspath(os.path.join(directory, INSTALL_SCRIPT))
-    if os.path.isfile(install_script):
-        module = imp.load_source("%s.%s" % (install_script, str(uuid.uuid4())),
-                                 install_script)
-        for name in dir(module):
-            obj = getattr(module, name)
-            if callable(obj) and obj.__name__ == INSTALL_METHOD:
-                print("Calling %s:%s" % (install_script, obj.__name__))
-                obj()
-
-
 def install():
     config = read_config()
     for source, destination in config.items():
         install_link(source, destination)
-    for directory in [d for d in os.listdir(CURRENT_FOLDER)
-                      if os.path.isdir(d)]:
-        install_sub_module(directory)
 
 
 if __name__ == "__main__":
