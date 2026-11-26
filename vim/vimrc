@@ -86,9 +86,9 @@ let python_highlight_all=1
 set whichwrap+=<,>,[,]
 
 
-" enable 256 colors and zenburn scheme
+" enable 256 colors and zenburn scheme (silent: it's missing until PluginInstall)
 set t_Co=256
-colors zenburn
+silent! colorscheme zenburn
 
 " set the search scan to wrap lines
 set wrapscan
