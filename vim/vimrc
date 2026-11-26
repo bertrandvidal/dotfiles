@@ -51,8 +51,8 @@ set si
 "Wrap lines
 set wrap
 
-" Merge selection and system clipboard
-set clipboard=unnamedplus
+" Use the system clipboard for yank/delete/put (unnamedplus is X11/Wayland only)
+set clipboard=unnamed
 
 set guifont=ProggyCleanTT\ 16
 set matchpairs=(:),{:},[:],<:>
