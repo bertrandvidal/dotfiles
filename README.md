@@ -23,14 +23,3 @@ xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select 
     sudo softwareupdate --install -a && \
     { [ -f ~/.p10k.zsh ] || zsh -i -c 'p10k configure'; }
 ```
-
-Update
-======
-
-Homebrew and everything it installed, then the Xcode Command Line Tools, which
-are updated through Software Update along with macOS itself:
-
-```sh
-brew update && brew upgrade && \
-    sudo softwareupdate --install -a
-```
