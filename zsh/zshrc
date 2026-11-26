@@ -169,6 +169,8 @@ export PATH="$PATH:$HOME/bin"
 
 # opencode
 export PATH=/Users/bvidal/.opencode/bin:$PATH
+
+# creds export for MCPs
 if [[ -z "$BIFROST_API_KEY" || -z "$SNOWFLAKE_MCP_CLIENT_ID" || -z "$SNOWFLAKE_MCP_CLIENT_SECRET" ]]; then
   export OP_BIOMETRIC_UNLOCK_ENABLED=true
   export BIFROST_API_KEY=$(op read "op://Private/Bifrost Virtual Key/credential" 2>/dev/null)
