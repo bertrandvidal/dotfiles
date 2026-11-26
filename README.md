@@ -20,7 +20,8 @@ xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select 
     vim -c PluginInstall &&
     brew install mise direnv gh &&
     brew install --cask MonitorControl bluesnooze rectangle && \
-    sudo softwareupdate --install -a
+    sudo softwareupdate --install -a && \
+    { [ -f ~/.p10k.zsh ] || zsh -i -c 'p10k configure'; }
 ```
 
 Update
