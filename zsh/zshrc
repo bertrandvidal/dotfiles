@@ -99,7 +99,7 @@ alias gimme='curl -LfO'
 export PAGER=""
 
 # All the secret stuff!
-[ -f "/Users/bvidal/.secrets" ] && . /Users/bvidal/.secrets
+[ -f "$HOME/.secrets" ] && . "$HOME/.secrets"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -145,7 +145,7 @@ function mkcd(){
 autoload -Uz compinit && compinit
 command -v entire >/dev/null && source <(entire completion zsh)
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/bvidal/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
@@ -168,7 +168,7 @@ command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 export PATH="$PATH:$HOME/bin"
 
 # opencode
-export PATH=/Users/bvidal/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # creds export for MCPs
 if [[ -z "$BIFROST_API_KEY" || -z "$SNOWFLAKE_MCP_CLIENT_ID" || -z "$SNOWFLAKE_MCP_CLIENT_SECRET" ]]; then
@@ -179,4 +179,4 @@ if [[ -z "$BIFROST_API_KEY" || -z "$SNOWFLAKE_MCP_CLIENT_ID" || -z "$SNOWFLAKE_M
 fi
 
 # AsyncAPI CLI Autocomplete
-ASYNCAPI_AC_ZSH_SETUP_PATH=/Users/bvidal/Library/Caches/@asyncapi/cli/autocomplete/zsh_setup && test -f $ASYNCAPI_AC_ZSH_SETUP_PATH && source $ASYNCAPI_AC_ZSH_SETUP_PATH; # asyncapi autocomplete setup
+ASYNCAPI_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/@asyncapi/cli/autocomplete/zsh_setup" && test -f "$ASYNCAPI_AC_ZSH_SETUP_PATH" && source "$ASYNCAPI_AC_ZSH_SETUP_PATH"; # asyncapi autocomplete setup
