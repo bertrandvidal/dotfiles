@@ -140,10 +140,6 @@ function mkcd(){
 # dot file functions
 [ -f ~/.dotfile.sh ] && source ~/.dotfile.sh
 
-
-# Entire CLI shell completion
-autoload -Uz compinit && compinit
-command -v entire >/dev/null && source <(entire completion zsh)
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/bvidal/.docker/completions $fpath)
 autoload -Uz compinit
