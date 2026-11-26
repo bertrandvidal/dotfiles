@@ -8,6 +8,8 @@ Install
 
 ```sh
 xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select -p >/dev/null 2>&1; do sleep 5; done; } && \
+    { [ -x /opt/homebrew/bin/brew ] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; } && \
+    eval "$(/opt/homebrew/bin/brew shellenv)" && \
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
     mkdir ~/github && \
@@ -23,9 +25,10 @@ xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select 
 Update
 ======
 
-The Xcode Command Line Tools are updated through Software Update, along with
-macOS itself:
+Homebrew and everything it installed, then the Xcode Command Line Tools, which
+are updated through Software Update along with macOS itself:
 
 ```sh
-sudo softwareupdate --install -a
+brew update && brew upgrade && \
+    sudo softwareupdate --install -a
 ```
