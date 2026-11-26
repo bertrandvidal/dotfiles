@@ -10,7 +10,7 @@ Install
 xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select -p >/dev/null 2>&1; do sleep 5; done; } && \
     { [ -x /opt/homebrew/bin/brew ] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; } && \
     eval "$(/opt/homebrew/bin/brew shellenv)" && \
-    brew install git python pyenv gh && \
+    brew install git python pyenv gh mise direnv && \
     mkdir -p -m 700 ~/.ssh && \
     { [ -f ~/.ssh/id_ed25519 ] || ssh-keygen -t ed25519 -C "$(whoami)@$(scutil --get LocalHostName)" -f ~/.ssh/id_ed25519; } && \
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 && \
@@ -23,7 +23,6 @@ xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select 
     ~/github/dotfiles/install.py && \
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
     vim -c PluginInstall &&
-    brew install mise direnv &&
     brew install --cask MonitorControl bluesnooze rectangle && \
     sudo softwareupdate --install -a && \
     { [ -f ~/.p10k.zsh ] || zsh -i -c 'p10k configure'; }
