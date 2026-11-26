@@ -13,7 +13,7 @@ xcode-select -p >/dev/null 2>&1 || { xcode-select --install; until xcode-select 
     brew install git python pyenv && \
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    mkdir ~/github && \
+    mkdir -p ~/github && \
     git clone git@github.com:bertrandvidal/dotfiles.git ~/github/dotfiles && \
     ~/github/dotfiles/install.py && \
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
